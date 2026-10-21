@@ -122,3 +122,15 @@ Independent AI agents reviewed the main proof chains; there has been no
 independent human mathematical review. No novelty is claimed.
 The repository snapshot is licensed Apache-2.0; cited papers retain their own
 rights. The source-to-Lean correspondence is in research/coverage.tsv.
+
+## Submission state
+
+No Palomar submission or registration has been completed. The first two
+mechanical preflight attempts stopped in preparation/reporting before checking
+Lean. The caller's request identifier was longer than the pipeline's required
+12 lowercase alphanumeric characters; this has been corrected.
+The reusable workflow now runs manually, after the human maintainer confirms
+their authorization relationship. Run the Palomar mechanical preflight workflow
+at this exact commit with the confirmed relationship, and require its full
+mechanical report to say pass before intake. The browser authorization flow
+must be completed by the human submitter. See verification/palomar-preparation-status.json.

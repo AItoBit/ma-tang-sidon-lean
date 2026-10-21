@@ -1,0 +1,25 @@
+{
+  "status": "not_submitted",
+  "partial_scope_authorized": true,
+  "maintainer_relationship_confirmation": "required by automatic approval review before recording at Palomar",
+  "preflight": "not passed",
+  "attempts": [
+    {
+      "commit": "2288c13c3db201bff4409c1aa7f22a304f5a79e8",
+      "run": "https://github.com/AItoBit/ma-tang-sidon-lean/actions/runs/39572283458",
+      "result": "preparation/reporting error before Lean verification"
+    },
+    {
+      "commit": "ccb489f7ee3101f2a477e1dcf91910188e30e0d8",
+      "run": "https://github.com/AItoBit/ma-tang-sidon-lean/actions/runs/39572882717",
+      "result": "preparation/reporting error before Lean verification"
+    }
+  ],
+  "identified_caller_issue": "Pipeline requires exactly12 lowercasealphanumeric characters for request_id; old caller used sidon-<run>-<attempt>. Corrected to sidonproof01. Also requires explicit authorization_relationship in options. New workflow is manual to wait for role confirmation.",
+  "local_module_build": "passed",
+  "public_theorems_audited": 216,
+  "compared_theorems_audited": 5,
+  "independent_statement_fidelity": "passed",
+  "palomar_acceptance_claimed": false,
+  "local_comparator": "Statement comparison reached kernel-check phase using exports, but local kernel subprocess could not start because bubblewrap namespace access is unavailable. Not a passing Comparator run and not evidence of proof rejection."
+}

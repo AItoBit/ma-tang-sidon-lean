@@ -1,0 +1,71 @@
+Independent Palomar statement/source-fidelity review — 2026-10-21
+Reviewer: /root/palomar_statement_referee
+
+VERDICT: PASS for the five selected compared statements and their public
+mathematical definitions. This is not a full-paper-completion verdict and does
+not claim that Palomar mechanical preflight or registration has succeeded.
+
+Reviewed material:
+- palomar-stage/Challenge.lean and Solution.lean in full.
+- Original SidonPaper/Basic.lean, Targets.lean and HypergraphBridge.lean
+  definitions; original elaborated main targets in submission-audit.log.
+- Uploaded Ma–Tang v2 source text, abstract, Sections1.1–1.3 and Theorem4.6.
+- Current README, formalization.yaml, Lakefile and dependency manifest.
+
+Definition/type compatibility check:
+I independently compiled two temporary Lean inspection modules, one importing
+Challenge and one importing Solution. With pp.all=true, #print output for the
+following12 public declarations is BYTE-FOR-BYTE IDENTICAL:
+IsSidon, IsWeakSidon, differences, IsFourFive, h, g, f, cStar,
+FiniteHypergraph, FiniteHypergraph.Transversal, FiniteHypergraph.tau,
+FiniteHypergraph.ThreeUniform (all in namespace SidonPaper).
+This checks the elaborated types AND exposed definition values, including the
+structure's fields and constructor shape; there is no surrogate definition or
+changed implicit binder in the Challenge clone. Both compiler invocations
+exited0. Inspection output SHA256: 108f823622af69dcd1a177e084f0d653cdd8d59999d9ccef70e7d41d5ac512d9.
+
+Selected claims:
+1. weak_sidon_limit states exactly the existence/value assertion in1.2 as
+   Tendsto(g(n)/n,1/2). Real division at n=0 is immaterial to the atTop limit.
+2. exact_weak_sidon_size quantifies over EVERY natural n>=1. Natural(n+2)/2
+   equals ceil((n+1)/2): n=2k gives k+1, n=2k+1 gives k+1. The problematic
+   floor((n+1)/2) formula is not used.
+3. four_five_limit states BOTH convergence f(n)/n->cStar and
+   cStar=inf{f(n)/n:n>=1}, with the same optimal universal density definition.
+4. density_upper states cStar<=4/7 and is consistently described as ONLY the
+   upper half of1.6. No9/17 lower bound is claimed or implicitly assumed.
+5. transversal_bound has only finite3uniformity as a mathematical hypothesis.
+   There is no added linearity, regularity, size, or DecidableEq assumption.
+   Finset edges model the source's simple finite hypergraph convention,
+   including isolated vertices. Nonempty edges cause no restriction on a
+   three-uniform hypergraph, since every3-element edge is nonempty.
+
+The Solution wrappers reference the actual proved original declarations. Their
+elaborated types and transitive axiom reports in submission-audit.log contain
+only propext, Classical.choice and Quot.sound. Solution imports the substantive
+SidonPaper umbrella, never Challenge. The five deliberate holes occur only in
+the separate statement-only Challenge and are correctly disclosed and excluded
+from the mathematical proof closure and reported proof-development sorry count.
+
+Metadata / scope:
+README and formalization.yaml explicitly say partial, identify5.3 and lower1.6
+as unresolved, retain the ancillary historical inequality/APnonlinearity gaps,
+and make no novelty, human-review, Consensus-review or Palomar-acceptance claim.
+Theorems1.2,1.3,1.5 and4.6 are not confused with Prop specifications. Human
+responsibility is assigned to the submitting GitHub user's handle; AI work is
+credited in automation, not listed as a human author. No material false scope
+or source-alignment statement was found.
+
+Portable environment:
+Lean v4.35.0-rc4 exactly matches the Mathlib checkout's lean-toolchain.
+Lakefile and manifest both pin Mathlib49fd9dee36e7bbf345fe7981d2de6aeeb591f75b.
+Every dependency entry has a public credential-free GitHub URL and a full40hex
+commit pin, with no local path dependency. Imported library versions were copied
+from the pinned Mathlib manifest. Root Apache-2.0 licence and metadata agree.
+No claim is made here that the remote workflow has already passed.
+
+Limitations:
+This focused independent review checks statement fidelity and packaging, not a
+new line-by-line re-proof of the entire4,591-line development. It relies on the
+recorded independent mathematical proof reviews and kernel checks for proof
+correctness. Final Palomar Comparator/NanoDa workflow remains a separate gate.
