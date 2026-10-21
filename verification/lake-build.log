@@ -1,0 +1,163 @@
+✔ [2135/2173] Built SidonPaper.FiniteDefinitions (1.5s)
+✔ [2136/2173] Built SidonPaper.Basic (3.0s)
+⚠ [2137/2173] Built Challenge (2.1s)
+warning: Challenge.lean:105:8: declaration uses `sorry`
+warning: Challenge.lean:110:8: declaration uses `sorry`
+warning: Challenge.lean:114:8: declaration uses `sorry`
+warning: Challenge.lean:120:8: declaration uses `sorry`
+warning: Challenge.lean:124:8: declaration uses `sorry`
+✔ [2139/2173] Built SidonPaper.Limits (2.1s)
+ℹ [2140/2173] Built SidonPaper.FiniteWitness (1.3s)
+info: SidonPaper/FiniteWitness.lean:15:0: SidonPaper.Certificate.witness_sidon_by_count : SidonByCount witness
+info: SidonPaper/FiniteWitness.lean:18:0: 'SidonPaper.Certificate.witness_sidon_by_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [2141/2173] Built SidonPaper.Targets (1.7s)
+✔ [2142/2173] Built SidonPaper.IntegerBridge (1.2s)
+✔ [2143/2173] Built SidonPaper.ExtremalBasics (1.7s)
+✔ [2144/2173] Built SidonPaper.APBounds (2.1s)
+✔ [2145/2173] Built SidonPaper.Construction (3.0s)
+✔ [2146/2173] Built SidonPaper.Core (1.7s)
+⚠ [2147/2173] Built SidonPaper.Relations (3.8s)
+warning: SidonPaper/Relations.lean:76:16: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [Prod.snd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: SidonPaper/Relations.lean:76:26: This simp argument is unused:
+  Prod.snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [Prod.fst]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: SidonPaper/Relations.lean:97:8: This simp argument is unused:
+  ne_of_gt hac
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ne_of_lt hac, ne_of_lt hcd, ne_of_lt hdb, ne_of_lt (lt_trans hac hcd),
+    ne_of_lt (lt_trans hac (lt_trans hcd hdb)), ne_of_lt (lt_trans hcd hdb), ne_of_gt hcd, ne_of_gt hdb,
+    ne_of_gt (lt_trans hac hcd), ne_of_gt (lt_trans hac (lt_trans hcd hdb)), ne_of_gt (lt_trans hcd hdb)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: SidonPaper/Relations.lean:97:22: This simp argument is unused:
+  ne_of_gt hcd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ne_of_lt hac, ne_of_lt hcd, ne_of_lt hdb, ne_of_lt (lt_trans hac hcd),
+    ne_of_lt (lt_trans hac (lt_trans hcd hdb)), ne_of_lt (lt_trans hcd hdb), ne_of_gt hac, ne_of_gt hdb,
+    ne_of_gt (lt_trans hac hcd), ne_of_gt (lt_trans hac (lt_trans hcd hdb)), ne_of_gt (lt_trans hcd hdb)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: SidonPaper/Relations.lean:97:36: This simp argument is unused:
+  ne_of_gt hdb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ne_of_lt hac, ne_of_lt hcd, ne_of_lt hdb, ne_of_lt (lt_trans hac hcd),
+    ne_of_lt (lt_trans hac (lt_trans hcd hdb)), ne_of_lt (lt_trans hcd hdb), ne_of_gt hac, ne_of_gt hcd,
+    ne_of_gt (lt_trans hac hcd), ne_of_gt (lt_trans hac (lt_trans hcd hdb)), ne_of_gt (lt_trans hcd hdb)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: SidonPaper/Relations.lean:98:8: This simp argument is unused:
+  ne_of_gt (lt_trans hac hcd)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ne_of_lt hac, ne_of_lt hcd, ne_of_lt hdb, ne_of_lt (lt_trans hac hcd),
+    ne_of_lt (lt_trans hac (lt_trans hcd hdb)), ne_of_lt (lt_trans hcd hdb), ne_of_gt hac, ne_of_gt hcd, ne_of_gt hdb,
+    ne_of_gt (lt_trans hac (lt_trans hcd hdb)), ne_of_gt (lt_trans hcd hdb)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: SidonPaper/Relations.lean:98:37: This simp argument is unused:
+  ne_of_gt (lt_trans hac (lt_trans hcd hdb))
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ne_of_lt hac, ne_of_lt hcd, ne_of_lt hdb, ne_of_lt (lt_trans hac hcd),
+    ne_of_lt (lt_trans hac (lt_trans hcd hdb)), ne_of_lt (lt_trans hcd hdb), ne_of_gt hac, ne_of_gt hcd, ne_of_gt hdb,
+    ne_of_gt (lt_trans hac hcd), ne_of_gt (lt_trans hcd hdb)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: SidonPaper/Relations.lean:99:8: This simp argument is unused:
+  ne_of_gt (lt_trans hcd hdb)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ne_of_lt hac, ne_of_lt hcd, ne_of_lt hdb, ne_of_lt (lt_trans hac hcd),
+    ne_of_lt (lt_trans hac (lt_trans hcd hdb)), ne_of_lt (lt_trans hcd hdb), ne_of_gt hac, ne_of_gt hcd, ne_of_gt hdb,
+    ne_of_gt (lt_trans hac hcd), ne_of_gt (lt_trans hac (lt_trans hcd hdb))]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ℹ [2148/2173] Built SidonPaper.AffineExtremal (2.2s)
+info: SidonPaper/AffineExtremal.lean:127:0: 'SidonPaper.h_affineImage' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SidonPaper/AffineExtremal.lean:128:0: 'SidonPaper.fourFive_affineImage_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [2149/2173] Built SidonPaper.ConstructionIndependence (1.6s)
+info: SidonPaper/ConstructionIndependence.lean:187:0: 'SidonPaper.construction_h' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SidonPaper/ConstructionIndependence.lean:188:0: 'SidonPaper.construction_subset_card_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [2150/2173] Built SidonPaper.FiniteUpper (7.1s)
+info: SidonPaper/FiniteUpper.lean:83:0: 'SidonPaper.Certificate.base_sidon_card_le_eight' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [2151/2173] Built SidonPaper.FiniteFourFive (8.5s)
+info: SidonPaper/FiniteFourFive.lean:17:0: SidonPaper.Certificate.base_fourFive_by_count : FourFiveByCount base
+info: SidonPaper/FiniteFourFive.lean:20:0: 'SidonPaper.Certificate.base_fourFive_by_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [2152/2173] Built SidonPaper.APLinearity (3.7s)
+warning: SidonPaper/APLinearity.lean:29:44: Variable name `hab` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hab
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: SidonPaper/APLinearity.lean:47:78: Variable name `hcd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: SidonPaper/APLinearity.lean:90:15: This simp argument is unused:
+  Prod.fst
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Prod.snd] at *
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: SidonPaper/APLinearity.lean:90:24: This simp argument is unused:
+  Prod.snd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Prod.fst] at *
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ℹ [2153/2173] Built SidonPaper.FiniteCertificate (1.1s)
+info: SidonPaper/FiniteCertificate.lean:21:0: 'SidonPaper.Certificate.lemma_5_1_integer_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [2154/2173] Built SidonPaper.Gluing (4.1s)
+info: SidonPaper/Gluing.lean:379:0: 'SidonPaper.weakSidon_affine_gluing' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SidonPaper/Gluing.lean:380:0: 'SidonPaper.fourFive_affine_gluing' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [2155/2173] Built SidonPaper.RealCertificate (1.5s)
+✔ [2156/2173] Built SidonPaper.Attainment (2.4s)
+✔ [2157/2173] Built SidonPaper.UpperBound (1.6s)
+✔ [2158/2173] Built SidonPaper.StrictInclusions (1.6s)
+✔ [2159/2173] Built SidonPaper.ConstructionUpper (1.4s)
+✔ [2160/2173] Built SidonPaper.ExtremalLimits (1.4s)
+✔ [2161/2173] Built SidonPaper.CeilingAsymptotic (1.9s)
+✔ [2162/2173] Built SidonPaper.F7Free (22s)
+✔ [2163/2173] Built SidonPaper.HypergraphBridge (1.7s)
+⚠ [2164/2173] Built SidonPaper.TransversalReduction (1.8s)
+warning: SidonPaper/TransversalReduction.lean:216:0: automatically included section variable(s) unused in theorem `SidonPaper.FiniteHypergraph.tau_eq_zero_of_edges_empty`:
+  [DecidableEq α]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq α] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [2165/2173] Built SidonPaper.TransversalPacking (1.4s)
+⚠ [2166/2173] Built SidonPaper.TransversalCycle (1.5s)
+warning: SidonPaper/TransversalCycle.lean:83:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [2167/2173] Built SidonPaper.TransversalLowDegree (2.2s)
+✔ [2168/2173] Built SidonPaper.TransversalDualPacking (1.3s)
+✔ [2169/2173] Built SidonPaper.TransversalTheorem (1.4s)
+✔ [2170/2173] Built SidonPaper.MainExact (1.5s)
+✔ [2171/2173] Built SidonPaper (1.3s)
+✔ [2172/2173] Built Solution (1.3s)
+Build completed successfully (2173 jobs).

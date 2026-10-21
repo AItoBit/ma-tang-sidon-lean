@@ -1,4 +1,4 @@
-name = "sidon-paper"
+name = "sidonpaper"
 version = "0.3.0"
 defaultTargets = ["SidonPaper", "Solution", "Challenge"]
 
