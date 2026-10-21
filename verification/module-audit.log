@@ -1,0 +1,741 @@
+SidonPaper.IsSidon.weak {A : Set ℝ} (h : SidonPaper.IsSidon A) : SidonPaper.IsWeakSidon A
+'SidonPaper.IsSidon.weak' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.IsSidon.mono {A B : Set ℝ} (h : SidonPaper.IsSidon A) (hBA : B ⊆ A) : SidonPaper.IsSidon B
+'SidonPaper.IsSidon.mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.IsWeakSidon.mono {A B : Set ℝ} (h : SidonPaper.IsWeakSidon A) (hBA : B ⊆ A) : SidonPaper.IsWeakSidon B
+'SidonPaper.IsWeakSidon.mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.IsSidon.apFree {A : Set ℝ} (h : SidonPaper.IsSidon A) : SidonPaper.IsAPFree A
+'SidonPaper.IsSidon.apFree' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.sidon_iff_apFree {A : Set ℝ} (hw : SidonPaper.IsWeakSidon A) : SidonPaper.IsSidon A ↔ SidonPaper.IsAPFree A
+'SidonPaper.sidon_iff_apFree' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.sidon_subset_iff_apFree {A S : Set ℝ} (hw : SidonPaper.IsWeakSidon A) (hSA : S ⊆ A) :
+  SidonPaper.IsSidon S ↔ SidonPaper.IsAPFree S
+'SidonPaper.sidon_subset_iff_apFree' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.ap_endpoints_unique {A : Set ℝ} (hw : SidonPaper.IsWeakSidon A) {a b c d x : ℝ} (ha : a ∈ A) (hb : b ∈ A)
+  (hc : c ∈ A) (hd : d ∈ A) (hab : a < b) (hcd : c < d) (hax : a + b = x + x) (hcx : c + d = x + x) : a = c ∧ b = d
+'SidonPaper.ap_endpoints_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.ap_midpoint_between {a b x : ℝ} (hab : a < b) (h : a + b = x + x) : a < x ∧ x < b
+'SidonPaper.ap_midpoint_between' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.sidon_affine_iff (A : Set ℝ) {q t : ℝ} (hq : 0 < q) :
+  SidonPaper.IsSidon ((fun x => q * x + t) '' A) ↔ SidonPaper.IsSidon A
+'SidonPaper.sidon_affine_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.weakSidon_affine_iff (A : Set ℝ) {q t : ℝ} (hq : 0 < q) :
+  SidonPaper.IsWeakSidon ((fun x => q * x + t) '' A) ↔ SidonPaper.IsWeakSidon A
+'SidonPaper.weakSidon_affine_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.h_eq_apIndependenceNumber {A : Finset ℝ} (hw : SidonPaper.IsWeakSidon ↑A) :
+  SidonPaper.h A = SidonPaper.apIndependenceNumber A
+'SidonPaper.h_eq_apIndependenceNumber' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.apEdges_card_le {A : Finset ℝ} (hw : SidonPaper.IsWeakSidon ↑A) (hcard : 2 ≤ A.card) :
+  (SidonPaper.apEdges A).card ≤ A.card - 2
+'SidonPaper.apEdges_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.IsSidon.eq_or_swap {A : Set ℝ} (h : SidonPaper.IsSidon A) {a b c d : ℝ} (ha : a ∈ A) (hb : b ∈ A)
+  (hc : c ∈ A) (hd : d ∈ A) (hs : a + b = c + d) : a = c ∧ b = d ∨ a = d ∧ b = c
+'SidonPaper.IsSidon.eq_or_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.IsSidon.difference_injective {A : Finset ℝ} (h : SidonPaper.IsSidon ↑A) :
+  Set.InjOn (fun p => p.2 - p.1) ↑({p ∈ A.product A | p.1 < p.2})
+'SidonPaper.IsSidon.difference_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.IsSidon.differences_card {A : Finset ℝ} (h : SidonPaper.IsSidon ↑A) :
+  (SidonPaper.differences A).card = A.card.choose 2
+'SidonPaper.IsSidon.differences_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.IsSidon.fourFive {A : Finset ℝ} (h : SidonPaper.IsSidon ↑A) : SidonPaper.IsFourFive A
+'SidonPaper.IsSidon.fourFive' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.equal_sum_differences_le {a b c d : ℝ} (hab : a < b) (hbc : b < c) (hcd : c < d) (hs : a + d = b + c) :
+  (SidonPaper.differences {a, b, c, d}).card ≤ 4
+'SidonPaper.equal_sum_differences_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.IsFourFive.weakSidon {A : Finset ℝ} (h : SidonPaper.IsFourFive A) : SidonPaper.IsWeakSidon ↑A
+'SidonPaper.IsFourFive.weakSidon' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.apEdges_linear {A : Finset ℝ} (h : SidonPaper.IsFourFive A) {p q : ℝ × ℝ × ℝ} (hp : p ∈ SidonPaper.apEdges A)
+  (hq : q ∈ SidonPaper.apEdges A) (hpq : p ≠ q) : (SidonPaper.apVertices p ∩ SidonPaper.apVertices q).card ≤ 1
+'SidonPaper.apEdges_linear' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.card_le_h {A B : Finset ℝ} (hBA : B ⊆ A) (hB : SidonPaper.IsSidon ↑B) : B.card ≤ SidonPaper.h A
+'SidonPaper.card_le_h' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.h_le_card (A : Finset ℝ) : SidonPaper.h A ≤ A.card
+'SidonPaper.h_le_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.h_mono {A B : Finset ℝ} (hAB : A ⊆ B) : SidonPaper.h A ≤ SidonPaper.h B
+'SidonPaper.h_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.affine_injective {q t : ℝ} (hq : 0 < q) : Function.Injective fun x => q * x + t
+'SidonPaper.affine_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.affineImage_coe (A : Finset ℝ) (q t : ℝ) : ↑(SidonPaper.affineImage A q t) = (fun x => q * x + t) '' ↑A
+'SidonPaper.affineImage_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.affineImage_card (A : Finset ℝ) {q t : ℝ} (hq : 0 < q) : (SidonPaper.affineImage A q t).card = A.card
+'SidonPaper.affineImage_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.h_affineImage (A : Finset ℝ) {q t : ℝ} (hq : 0 < q) :
+  SidonPaper.h (SidonPaper.affineImage A q t) = SidonPaper.h A
+'SidonPaper.h_affineImage' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.weakSidon_affineImage_iff (A : Finset ℝ) {q t : ℝ} (hq : 0 < q) :
+  SidonPaper.IsWeakSidon ↑(SidonPaper.affineImage A q t) ↔ SidonPaper.IsWeakSidon ↑A
+'SidonPaper.weakSidon_affineImage_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.differences_affineImage (A : Finset ℝ) {q t : ℝ} (hq : 0 < q) :
+  SidonPaper.differences (SidonPaper.affineImage A q t) = Finset.image (fun x => q * x) (SidonPaper.differences A)
+'SidonPaper.differences_affineImage' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.differences_affineImage_card (A : Finset ℝ) {q t : ℝ} (hq : 0 < q) :
+  (SidonPaper.differences (SidonPaper.affineImage A q t)).card = (SidonPaper.differences A).card
+'SidonPaper.differences_affineImage_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.fourFive_affineImage_iff (A : Finset ℝ) {q t : ℝ} (hq : 0 < q) :
+  SidonPaper.IsFourFive (SidonPaper.affineImage A q t) ↔ SidonPaper.IsFourFive A
+'SidonPaper.fourFive_affineImage_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.h_union_le (A B : Finset ℝ) : SidonPaper.h (A ∪ B) ≤ SidonPaper.h A + SidonPaper.h B
+'SidonPaper.h_union_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.weakSidon_union_of_separated {A B : Finset ℝ} (hA : SidonPaper.IsWeakSidon ↑A)
+  (hB : SidonPaper.IsWeakSidon ↑B) (horder : ∀ a ∈ A, ∀ b ∈ B, a < b)
+  (hfirst : ∀ a ∈ A, ∀ b ∈ A, ∀ c ∈ A, ∀ d ∈ B, a + b < c + d)
+  (hlast : ∀ a ∈ A, ∀ b ∈ B, ∀ c ∈ B, ∀ d ∈ B, a + b < c + d)
+  (hmixed : ∀ a ∈ A, ∀ b ∈ B, ∀ c ∈ A, ∀ d ∈ B, a + b = c + d → a = c ∧ b = d) : SidonPaper.IsWeakSidon ↑(A ∪ B)
+'SidonPaper.weakSidon_union_of_separated' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.exists_positive_mixed_injective (A B : Finset ℝ) :
+  ∃ q, 0 < q ∧ ∀ a ∈ A, ∀ b ∈ B, ∀ c ∈ A, ∀ d ∈ B, a + q * b = c + q * d → a = c ∧ b = d
+'SidonPaper.exists_positive_mixed_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.finite_symmetric_bound (C : Finset ℝ) : ∃ L, 0 < L ∧ ∀ x ∈ C, -L ≤ x ∧ x ≤ L
+'SidonPaper.finite_symmetric_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.weakSidon_affine_gluing (A B : Finset ℝ) (hA : SidonPaper.IsWeakSidon ↑A) (hB : SidonPaper.IsWeakSidon ↑B) :
+  ∃ q t,
+    0 < q ∧
+      SidonPaper.IsWeakSidon ↑(A ∪ SidonPaper.affineImage B q t) ∧
+        (A ∪ SidonPaper.affineImage B q t).card = A.card + B.card ∧
+          SidonPaper.h (A ∪ SidonPaper.affineImage B q t) ≤ SidonPaper.h A + SidonPaper.h B
+'SidonPaper.weakSidon_affine_gluing' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.mem_differences {S : Finset ℝ} {a b : ℝ} (ha : a ∈ S) (hb : b ∈ S) (hab : a < b) :
+  b - a ∈ SidonPaper.differences S
+'SidonPaper.mem_differences' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.five_le_differences_of_chain {S : Finset ℝ} {a b c d e : ℝ} (ha : a ∈ SidonPaper.differences S)
+  (hb : b ∈ SidonPaper.differences S) (hc : c ∈ SidonPaper.differences S) (hd : d ∈ SidonPaper.differences S)
+  (he : e ∈ SidonPaper.differences S) (hab : a < b) (hbc : b < c) (hcd : c < d) (hde : d < e) :
+  5 ≤ (SidonPaper.differences S).card
+'SidonPaper.five_le_differences_of_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.differences_three_left {A B S : Finset ℝ} (hgap : ∀ a ∈ A, ∀ b ∈ B, ∀ c ∈ A, ∀ d ∈ A, d - c < b - a)
+  {a b c d : ℝ} (ha : a ∈ A) (_hb : b ∈ A) (hc : c ∈ A) (hd : d ∈ B) (haS : a ∈ S) (hbS : b ∈ S) (hcS : c ∈ S)
+  (hdS : d ∈ S) (hab : a < b) (hbc : b < c) (hcd : c < d) : 5 ≤ (SidonPaper.differences S).card
+'SidonPaper.differences_three_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.differences_three_right {A B S : Finset ℝ} (hgap : ∀ a ∈ A, ∀ b ∈ B, ∀ c ∈ B, ∀ d ∈ B, d - c < b - a)
+  {a b c d : ℝ} (ha : a ∈ A) (hb : b ∈ B) (_hc : c ∈ B) (hd : d ∈ B) (haS : a ∈ S) (hbS : b ∈ S) (hcS : c ∈ S)
+  (hdS : d ∈ S) (hab : a < b) (hbc : b < c) (hcd : c < d) : 5 ≤ (SidonPaper.differences S).card
+'SidonPaper.differences_three_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.differences_two_each {A B S : Finset ℝ} (hgap : ∀ a ∈ A, ∀ b ∈ B, ∀ c ∈ A, ∀ d ∈ A, d - c < b - a)
+  (hinj : ∀ a ∈ A, ∀ b ∈ B, ∀ c ∈ A, ∀ d ∈ B, b - a = d - c → a = c ∧ b = d) {a b c d : ℝ} (ha : a ∈ A) (hb : b ∈ A)
+  (hc : c ∈ B) (hd : d ∈ B) (haS : a ∈ S) (hbS : b ∈ S) (hcS : c ∈ S) (hdS : d ∈ S) (hab : a < b) (hbc : b < c)
+  (hcd : c < d) : 5 ≤ (SidonPaper.differences S).card
+'SidonPaper.differences_two_each' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.fourFive_union_of_separated {A B : Finset ℝ} (hA : SidonPaper.IsFourFive A) (hB : SidonPaper.IsFourFive B)
+  (horder : ∀ a ∈ A, ∀ b ∈ B, a < b) (hgapA : ∀ a ∈ A, ∀ b ∈ B, ∀ c ∈ A, ∀ d ∈ A, d - c < b - a)
+  (hgapB : ∀ a ∈ A, ∀ b ∈ B, ∀ c ∈ B, ∀ d ∈ B, d - c < b - a)
+  (hinj : ∀ a ∈ A, ∀ b ∈ B, ∀ c ∈ A, ∀ d ∈ B, b - a = d - c → a = c ∧ b = d) : SidonPaper.IsFourFive (A ∪ B)
+'SidonPaper.fourFive_union_of_separated' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.fourFive_affine_gluing (A B : Finset ℝ) (hA : SidonPaper.IsFourFive A) (hB : SidonPaper.IsFourFive B) :
+  ∃ q t,
+    0 < q ∧
+      SidonPaper.IsFourFive (A ∪ SidonPaper.affineImage B q t) ∧
+        (A ∪ SidonPaper.affineImage B q t).card = A.card + B.card ∧
+          SidonPaper.h (A ∪ SidonPaper.affineImage B q t) ≤ SidonPaper.h A + SidonPaper.h B
+'SidonPaper.fourFive_affine_gluing' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.exists_sidon_insert (A : Finset ℝ) (hA : SidonPaper.IsSidon ↑A) : ∃ x ∉ A, SidonPaper.IsSidon ↑(insert x A)
+'SidonPaper.exists_sidon_insert' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.exists_sidon_card (n : ℕ) : ∃ A, A.card = n ∧ SidonPaper.IsSidon ↑A
+'SidonPaper.exists_sidon_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.g_admissible_nonempty (n : ℕ) :
+  {k | ∃ A, A.card = n ∧ SidonPaper.IsWeakSidon ↑A ∧ SidonPaper.h A = k}.Nonempty
+'SidonPaper.g_admissible_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.g_attained (n : ℕ) : ∃ A, A.card = n ∧ SidonPaper.IsWeakSidon ↑A ∧ SidonPaper.h A = SidonPaper.g n
+'SidonPaper.g_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.f_admissible_nonempty (n : ℕ) : {k | ∃ A, A.card = n ∧ SidonPaper.IsFourFive A ∧ SidonPaper.h A = k}.Nonempty
+'SidonPaper.f_admissible_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.f_attained (n : ℕ) : ∃ A, A.card = n ∧ SidonPaper.IsFourFive A ∧ SidonPaper.h A = SidonPaper.f n
+'SidonPaper.f_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.g_le_h {A : Finset ℝ} (hw : SidonPaper.IsWeakSidon ↑A) : SidonPaper.g A.card ≤ SidonPaper.h A
+'SidonPaper.g_le_h' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.f_le_h {A : Finset ℝ} (hw : SidonPaper.IsFourFive A) : SidonPaper.f A.card ≤ SidonPaper.h A
+'SidonPaper.f_le_h' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.g_subadditive (m n : ℕ) : SidonPaper.g (m + n) ≤ SidonPaper.g m + SidonPaper.g n
+'SidonPaper.g_subadditive' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.h_attained (A : Finset ℝ) : ∃ B ⊆ A, SidonPaper.IsSidon ↑B ∧ B.card = SidonPaper.h A
+'SidonPaper.h_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.h_empty : SidonPaper.h ∅ = 0
+'SidonPaper.h_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.g_le_card_index (n : ℕ) : SidonPaper.g n ≤ n
+'SidonPaper.g_le_card_index' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.f_le_card_index (n : ℕ) : SidonPaper.f n ≤ n
+'SidonPaper.f_le_card_index' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.g_zero : SidonPaper.g 0 = 0
+'SidonPaper.g_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.f_zero : SidonPaper.f 0 = 0
+'SidonPaper.f_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.cStar_eq_inf_f_ratio : SidonPaper.cStar = sInf {r | ∃ n, 1 ≤ n ∧ r = ↑(SidonPaper.f n) / ↑n}
+'SidonPaper.cStar_eq_inf_f_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.fekete_nonnegative {u : ℕ → ℝ} (hs : Subadditive u) (hn : ∀ (n : ℕ), 0 ≤ u n) :
+  Filter.Tendsto (fun n => u n / ↑n) Filter.atTop (nhds (sInf ((fun n => u n / ↑n) '' Set.Ici 1)))
+'SidonPaper.fekete_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.g_ratio_tendsto_inf :
+  Filter.Tendsto (fun n => ↑(SidonPaper.g n) / ↑n) Filter.atTop
+    (nhds (sInf {r | ∃ n, 1 ≤ n ∧ r = ↑(SidonPaper.g n) / ↑n}))
+'SidonPaper.g_ratio_tendsto_inf' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.f_subadditive (m n : ℕ) : SidonPaper.f (m + n) ≤ SidonPaper.f m + SidonPaper.f n
+'SidonPaper.f_subadditive' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.f_ratio_tendsto_inf :
+  Filter.Tendsto (fun n => ↑(SidonPaper.f n) / ↑n) Filter.atTop
+    (nhds (sInf {r | ∃ n, 1 ≤ n ∧ r = ↑(SidonPaper.f n) / ↑n}))
+'SidonPaper.f_ratio_tendsto_inf' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.theorem_1_5 : SidonPaper.Theorem_1_5
+'SidonPaper.theorem_1_5' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.ceiling_half_ratio_tendsto : Filter.Tendsto (fun n => ↑((n + 2) / 2) / ↑n) Filter.atTop (nhds (1 / 2))
+'SidonPaper.ceiling_half_ratio_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.val3_X (n i : ℕ) : padicValNat 3 (SidonPaper.X n i) = i
+'SidonPaper.val3_X' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.val3_Y (n i : ℕ) : padicValNat 3 (SidonPaper.Y n i) = i
+'SidonPaper.val3_Y' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.X_pos (n i : ℕ) : 0 < SidonPaper.X n i
+'SidonPaper.X_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.Y_pos (n i : ℕ) : 0 < SidonPaper.Y n i
+'SidonPaper.Y_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.Y_eq_two_X (n i : ℕ) : SidonPaper.Y n i = 2 * SidonPaper.X n i
+'SidonPaper.Y_eq_two_X' depends on axioms: [propext]
+SidonPaper.X_injective (n : ℕ) : Function.Injective (SidonPaper.X n)
+'SidonPaper.X_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.Y_injective (n : ℕ) : Function.Injective (SidonPaper.Y n)
+'SidonPaper.Y_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.X_ne_Y (n i j : ℕ) : SidonPaper.X n i ≠ SidonPaper.Y n j
+'SidonPaper.X_ne_Y' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_blocks_disjoint (n : ℕ) :
+  Disjoint (Finset.image (SidonPaper.X n) (Finset.range n)) (Finset.image (SidonPaper.Y n) (Finset.range (n + 1)))
+'SidonPaper.construction_blocks_disjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_card (n : ℕ) : (SidonPaper.construction n).card = 2 * n + 1
+'SidonPaper.construction_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.X_mem_construction {n i : ℕ} (hi : i < n) : SidonPaper.X n i ∈ SidonPaper.construction n
+'SidonPaper.X_mem_construction' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.Y_mem_construction {n i : ℕ} (hi : i ≤ n) : SidonPaper.Y n i ∈ SidonPaper.construction n
+'SidonPaper.Y_mem_construction' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_pos {n a : ℕ} (ha : a ∈ SidonPaper.construction n) : 0 < a
+'SidonPaper.construction_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_ap_first {n i : ℕ} (hi : i < n) :
+  SidonPaper.X n i + SidonPaper.Y n i = 2 * SidonPaper.X n (i + 1)
+'SidonPaper.construction_ap_first' depends on axioms: [propext, Quot.sound]
+SidonPaper.construction_ap_second {n i : ℕ} (hi : i < n) :
+  SidonPaper.X n i + SidonPaper.Y n (i + 1) = 2 * SidonPaper.Y n i
+'SidonPaper.construction_ap_second' depends on axioms: [propext, Quot.sound]
+SidonPaper.construction_ap_first_order {n i : ℕ} (hi : i < n) :
+  SidonPaper.X n i < SidonPaper.X n (i + 1) ∧ SidonPaper.X n (i + 1) < SidonPaper.Y n i
+'SidonPaper.construction_ap_first_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_ap_second_order {n i : ℕ} (hi : i < n) :
+  SidonPaper.X n i < SidonPaper.Y n i ∧ SidonPaper.Y n i < SidonPaper.Y n (i + 1)
+'SidonPaper.construction_ap_second_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_at_valuation {n a i : ℕ} (ha : a ∈ SidonPaper.construction n) (hv : padicValNat 3 a = i) :
+  i < n ∧ a = SidonPaper.X n i ∨ i ≤ n ∧ a = SidonPaper.Y n i
+'SidonPaper.construction_at_valuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_equal_valuation_pair {n a b : ℕ} (ha : a ∈ SidonPaper.construction n)
+  (hb : b ∈ SidonPaper.construction n) (hab : a ≠ b) (hv : padicValNat 3 a = padicValNat 3 b) :
+  ∃ i < n, a = SidonPaper.X n i ∧ b = SidonPaper.Y n i ∨ a = SidonPaper.Y n i ∧ b = SidonPaper.X n i
+'SidonPaper.construction_equal_valuation_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_equal_valuation_sum {n a b : ℕ} (ha : a ∈ SidonPaper.construction n)
+  (hb : b ∈ SidonPaper.construction n) (hab : a ≠ b) (hv : padicValNat 3 a = padicValNat 3 b) :
+  ∃ i < n, a + b = SidonPaper.Y n (i + 1) ∧ padicValNat 3 (a + b) = i + 1
+'SidonPaper.construction_equal_valuation_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_equal_pair_unique {n a b c d : ℕ} (ha : a ∈ SidonPaper.construction n)
+  (hb : b ∈ SidonPaper.construction n) (hc : c ∈ SidonPaper.construction n) (hd : d ∈ SidonPaper.construction n)
+  (hab : a ≠ b) (hcd : c ≠ d) (hvab : padicValNat 3 a = padicValNat 3 b) (hvcd : padicValNat 3 c = padicValNat 3 d)
+  (hs : a + b = c + d) : a = c ∧ b = d ∨ a = d ∧ b = c
+'SidonPaper.construction_equal_pair_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.val3_add_of_ne {a b : ℕ} (ha : a ≠ 0) (hb : b ≠ 0) (hv : padicValNat 3 a ≠ padicValNat 3 b) :
+  padicValNat 3 (a + b) = min (padicValNat 3 a) (padicValNat 3 b)
+'SidonPaper.val3_add_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_mixed_pair_ne_equal_sum {n a b c d : ℕ} (ha : a ∈ SidonPaper.construction n)
+  (hb : b ∈ SidonPaper.construction n) (hc : c ∈ SidonPaper.construction n) (hd : d ∈ SidonPaper.construction n)
+  (hab : a ≠ b) (hcd : c ≠ d) (hvab : padicValNat 3 a = padicValNat 3 b) (hvcd : padicValNat 3 c ≠ padicValNat 3 d) :
+  a + b ≠ c + d
+'SidonPaper.construction_mixed_pair_ne_equal_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_mixed_pair_unique_oriented {n a b c d : ℕ} (ha : a ∈ SidonPaper.construction n)
+  (hb : b ∈ SidonPaper.construction n) (hc : c ∈ SidonPaper.construction n) (hd : d ∈ SidonPaper.construction n)
+  (hvab : padicValNat 3 a < padicValNat 3 b) (hvcd : padicValNat 3 c < padicValNat 3 d) (hs : a + b = c + d) :
+  a = c ∧ b = d
+'SidonPaper.construction_mixed_pair_unique_oriented' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_mixed_pair_unique {n a b c d : ℕ} (ha : a ∈ SidonPaper.construction n)
+  (hb : b ∈ SidonPaper.construction n) (hc : c ∈ SidonPaper.construction n) (hd : d ∈ SidonPaper.construction n)
+  (hvab : padicValNat 3 a ≠ padicValNat 3 b) (hvcd : padicValNat 3 c ≠ padicValNat 3 d) (hs : a + b = c + d) :
+  a = c ∧ b = d ∨ a = d ∧ b = c
+'SidonPaper.construction_mixed_pair_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_weakSidon_nat (n : ℕ) {a b c d : ℕ} (ha : a ∈ SidonPaper.construction n)
+  (hb : b ∈ SidonPaper.construction n) (hc : c ∈ SidonPaper.construction n) (hd : d ∈ SidonPaper.construction n)
+  (hab : a < b) (hcd : c < d) (hs : a + b = c + d) : a = c ∧ b = d
+'SidonPaper.construction_weakSidon_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_weakSidon_real (n : ℕ) : SidonPaper.IsWeakSidon (Nat.cast '' ↑(SidonPaper.construction n))
+'SidonPaper.construction_weakSidon_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.X_strictMonoOn (n : ℕ) : StrictMonoOn (SidonPaper.X n) (Set.Iic n)
+'SidonPaper.X_strictMonoOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.Y_strictMonoOn (n : ℕ) : StrictMonoOn (SidonPaper.Y n) (Set.Iic n)
+'SidonPaper.Y_strictMonoOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_bounds {n a : ℕ} (ha : a ∈ SidonPaper.construction n) :
+  SidonPaper.X n 0 ≤ a ∧ a ≤ SidonPaper.Y n n
+'SidonPaper.construction_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_ap_classification {n a m b : ℕ} (ha : a ∈ SidonPaper.construction n)
+  (hm : m ∈ SidonPaper.construction n) (hb : b ∈ SidonPaper.construction n) (ham : a < m) (hmb : m < b)
+  (hs : a + b = m + m) :
+  (∃ i, i + 1 < n ∧ a = SidonPaper.X n i ∧ m = SidonPaper.X n (i + 1) ∧ b = SidonPaper.Y n i) ∨
+    ∃ i < n, a = SidonPaper.X n i ∧ m = SidonPaper.Y n i ∧ b = SidonPaper.Y n (i + 1)
+'SidonPaper.construction_ap_classification' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.constructionAPs_card (n : ℕ) : (SidonPaper.constructionAPs n).card = 2 * n - 1
+'SidonPaper.constructionAPs_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.mem_constructionAPs_iff {n a m b : ℕ} :
+  (a, m, b) ∈ SidonPaper.constructionAPs n ↔
+    a ∈ SidonPaper.construction n ∧
+      m ∈ SidonPaper.construction n ∧ b ∈ SidonPaper.construction n ∧ a < m ∧ m < b ∧ a + b = m + m
+'SidonPaper.mem_constructionAPs_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.natRealImage_card (S : Finset ℕ) : (SidonPaper.natRealImage S).card = S.card
+'SidonPaper.natRealImage_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.natRealImage_coe (S : Finset ℕ) : ↑(SidonPaper.natRealImage S) = Nat.cast '' ↑S
+'SidonPaper.natRealImage_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_subset_card_bound {n : ℕ} (T : Finset ℕ) (hT : T ⊆ SidonPaper.construction n)
+  (hfirst : ∀ (i : ℕ), i + 1 < n → SidonPaper.X n i ∈ T → SidonPaper.X n (i + 1) ∈ T → SidonPaper.Y n i ∉ T)
+  (hsecond : ∀ i < n, SidonPaper.X n i ∈ T → SidonPaper.Y n i ∈ T → SidonPaper.Y n (i + 1) ∉ T) : T.card ≤ n + 1
+'SidonPaper.construction_subset_card_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_sidon_card_bound {n : ℕ} (T : Finset ℕ) (hT : T ⊆ SidonPaper.construction n)
+  (hS : SidonPaper.IsSidon ↑(SidonPaper.natRealImage T)) : T.card ≤ n + 1
+'SidonPaper.construction_sidon_card_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.constructionYBlock_subset (n : ℕ) : SidonPaper.constructionYBlock n ⊆ SidonPaper.construction n
+'SidonPaper.constructionYBlock_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.constructionYBlock_card (n : ℕ) : (SidonPaper.constructionYBlock n).card = n + 1
+'SidonPaper.constructionYBlock_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.constructionYBlock_sidon (n : ℕ) :
+  SidonPaper.IsSidon ↑(SidonPaper.natRealImage (SidonPaper.constructionYBlock n))
+'SidonPaper.constructionYBlock_sidon' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.construction_h (n : ℕ) : SidonPaper.h (SidonPaper.natRealImage (SidonPaper.construction n)) = n + 1
+'SidonPaper.construction_h' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.g_upper (n : ℕ) : SidonPaper.g n ≤ (n + 2) / 2
+'SidonPaper.g_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.weakSidon_unordered {A : Set ℝ} (hw : SidonPaper.IsWeakSidon A) {a b c d : ℝ} (ha : a ∈ A) (hb : b ∈ A)
+  (hc : c ∈ A) (hd : d ∈ A) (hab : a ≠ b) (hcd : c ≠ d) (hs : a + b = c + d) : a = c ∧ b = d ∨ a = d ∧ b = c
+'SidonPaper.weakSidon_unordered' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.weakSidon_index_pair {A : Set ℝ} (hw : SidonPaper.IsWeakSidon A) (v : Fin 7 → ℝ)
+  (hv : ∀ (i : Fin 7), v i ∈ A) (hinj : Function.Injective v) {i j k l : Fin 7} (hij : i < j) (hkl : k < l)
+  (hs : v i + v j = v k + v l) : i = k ∧ j = l
+'SidonPaper.weakSidon_index_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.weakSidon_no_F7_configuration {A : Set ℝ} (hw : SidonPaper.IsWeakSidon A) (v : Fin 7 → ℝ)
+  (hv : ∀ (i : Fin 7), v i ∈ A) (hinj : Function.Injective v) (h0 : SidonPaper.IsUnorderedAP (v 0) (v 1) (v 2))
+  (h1 : SidonPaper.IsUnorderedAP (v 0) (v 3) (v 4)) (h2 : SidonPaper.IsUnorderedAP (v 0) (v 5) (v 6))
+  (h3 : SidonPaper.IsUnorderedAP (v 1) (v 3) (v 5)) (h4 : SidonPaper.IsUnorderedAP (v 2) (v 4) (v 6)) : False
+'SidonPaper.weakSidon_no_F7_configuration' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.fourFive_no_F7_configuration {A : Finset ℝ} (hA : SidonPaper.IsFourFive A) (v : Fin 7 → ℝ)
+  (hv : ∀ (i : Fin 7), v i ∈ A) (hinj : Function.Injective v) (h0 : SidonPaper.IsUnorderedAP (v 0) (v 1) (v 2))
+  (h1 : SidonPaper.IsUnorderedAP (v 0) (v 3) (v 4)) (h2 : SidonPaper.IsUnorderedAP (v 0) (v 5) (v 6))
+  (h3 : SidonPaper.IsUnorderedAP (v 1) (v 3) (v 5)) (h4 : SidonPaper.IsUnorderedAP (v 2) (v 4) (v 6)) : False
+'SidonPaper.fourFive_no_F7_configuration' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.Certificate.sidonByCount_iff (S : Finset ℤ) :
+  SidonPaper.Certificate.SidonByCount S ↔ SidonPaper.Certificate.SidonByPairs S
+'SidonPaper.Certificate.sidonByCount_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.Certificate.sidonByCount_mono {S T : Finset ℤ} (hST : S ⊆ T) (hT : SidonPaper.Certificate.SidonByCount T) :
+  SidonPaper.Certificate.SidonByCount S
+'SidonPaper.Certificate.sidonByCount_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.Certificate.base_card : SidonPaper.Certificate.base.card = 14
+'SidonPaper.Certificate.base_card' depends on axioms: [propext, Quot.sound]
+SidonPaper.Certificate.witness_card : SidonPaper.Certificate.witness.card = 8
+'SidonPaper.Certificate.witness_card' depends on axioms: [propext, Quot.sound]
+SidonPaper.Certificate.witness_subset : SidonPaper.Certificate.witness ⊆ SidonPaper.Certificate.base
+'SidonPaper.Certificate.witness_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.Certificate.witness_sidon_by_count : SidonPaper.Certificate.SidonByCount SidonPaper.Certificate.witness
+'SidonPaper.Certificate.witness_sidon_by_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.Certificate.base_fourFive_by_count : SidonPaper.Certificate.FourFiveByCount SidonPaper.Certificate.base
+'SidonPaper.Certificate.base_fourFive_by_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.Certificate.progression_not_sidon {S : Finset ℤ} {a b c : ℤ} (ha : a ∈ S) (hb : b ∈ S) (hc : c ∈ S)
+  (hab : a < b) (hbc : b < c) (heq : a + c = b + b) : ¬SidonPaper.Certificate.SidonByPairs S
+'SidonPaper.Certificate.progression_not_sidon' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.Certificate.hasListedAP_not_sidon {S : Finset ℤ} (h : SidonPaper.Certificate.HasListedAP S) :
+  ¬SidonPaper.Certificate.SidonByPairs S
+'SidonPaper.Certificate.hasListedAP_not_sidon' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.Certificate.base_nine_hasListedAP (S : Finset ℤ) :
+  S ∈ Finset.powersetCard 9 SidonPaper.Certificate.base → SidonPaper.Certificate.HasListedAP S
+'SidonPaper.Certificate.base_nine_hasListedAP' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.Certificate.base_no_sidon_nine (S : Finset ℤ) :
+  S ∈ Finset.powersetCard 9 SidonPaper.Certificate.base → ¬SidonPaper.Certificate.SidonByCount S
+'SidonPaper.Certificate.base_no_sidon_nine' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.Certificate.base_sidon_card_le_eight {S : Finset ℤ} (hS : S ⊆ SidonPaper.Certificate.base)
+  (hSidon : SidonPaper.Certificate.SidonByCount S) : S.card ≤ 8
+'SidonPaper.Certificate.base_sidon_card_le_eight' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.Certificate.lemma_5_1_integer_certificate :
+  SidonPaper.Certificate.base.card = 14 ∧
+    SidonPaper.Certificate.FourFiveByCount SidonPaper.Certificate.base ∧
+      (∃ S ⊆ SidonPaper.Certificate.base, S.card = 8 ∧ SidonPaper.Certificate.SidonByPairs S) ∧
+        ∀ S ⊆ SidonPaper.Certificate.base, SidonPaper.Certificate.SidonByPairs S → S.card ≤ 8
+'SidonPaper.Certificate.lemma_5_1_integer_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.independent_empty.{u_1} {α : Type u_1} (H : SidonPaper.FiniteHypergraph α) : H.Independent ∅
+'SidonPaper.FiniteHypergraph.independent_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.transversal_vertices.{u_1} {α : Type u_1} (H : SidonPaper.FiniteHypergraph α) :
+  H.Transversal H.vertices
+'SidonPaper.FiniteHypergraph.transversal_vertices' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.independent_complement_iff.{u_1} {α : Type u_1} (H : SidonPaper.FiniteHypergraph α)
+  [DecidableEq α] (S : Finset α) : H.Independent S ↔ H.Transversal (H.vertices \ S)
+'SidonPaper.FiniteHypergraph.independent_complement_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.transversal_complement_independent.{u_1} {α : Type u_1} (H : SidonPaper.FiniteHypergraph α)
+  [DecidableEq α] {T : Finset α} (ht : H.Transversal T) : H.Independent (H.vertices \ T)
+'SidonPaper.FiniteHypergraph.transversal_complement_independent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SidonPaper.FiniteHypergraph.card_le_alpha.{u_1} {α : Type u_1} (H : SidonPaper.FiniteHypergraph α) {S : Finset α}
+  (hS : S ⊆ H.vertices) (hi : H.Independent S) : S.card ≤ H.alpha
+'SidonPaper.FiniteHypergraph.card_le_alpha' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.alpha_attained.{u_1} {α : Type u_1} (H : SidonPaper.FiniteHypergraph α) :
+  ∃ S ⊆ H.vertices, H.Independent S ∧ S.card = H.alpha
+'SidonPaper.FiniteHypergraph.alpha_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.tau_attained.{u_1} {α : Type u_1} (H : SidonPaper.FiniteHypergraph α) :
+  ∃ T ⊆ H.vertices, H.Transversal T ∧ T.card = H.tau
+'SidonPaper.FiniteHypergraph.tau_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.tau_le_card.{u_1} {α : Type u_1} (H : SidonPaper.FiniteHypergraph α) {T : Finset α}
+  (hT : T ⊆ H.vertices) (ht : H.Transversal T) : H.tau ≤ T.card
+'SidonPaper.FiniteHypergraph.tau_le_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.alpha_add_tau.{u_1} {α : Type u_1} (H : SidonPaper.FiniteHypergraph α) :
+  H.alpha + H.tau = H.vertices.card
+'SidonPaper.FiniteHypergraph.alpha_add_tau' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.edgeVertices_subset {A : Finset ℝ} {p : ℝ × ℝ × ℝ} (hp : p ∈ SidonPaper.apEdges A) :
+  SidonPaper.edgeVertices p ⊆ A
+'SidonPaper.edgeVertices_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.edgeVertices_card {A : Finset ℝ} {p : ℝ × ℝ × ℝ} (hp : p ∈ SidonPaper.apEdges A) :
+  (SidonPaper.edgeVertices p).card = 3
+'SidonPaper.edgeVertices_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.apHypergraph_three_uniform (A e : Finset ℝ) : e ∈ (SidonPaper.apHypergraph A).edges → e.card = 3
+'SidonPaper.apHypergraph_three_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.edgeVertices_injective_on (A : Finset ℝ) : Set.InjOn SidonPaper.edgeVertices ↑(SidonPaper.apEdges A)
+'SidonPaper.edgeVertices_injective_on' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.apHyperedges_card (A : Finset ℝ) : (SidonPaper.apHyperedges A).card = (SidonPaper.apEdges A).card
+'SidonPaper.apHyperedges_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.apHypergraph_edges_card_le {A : Finset ℝ} (hw : SidonPaper.IsWeakSidon ↑A) (hcard : 2 ≤ A.card) :
+  (SidonPaper.apHypergraph A).edges.card ≤ A.card - 2
+'SidonPaper.apHypergraph_edges_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.apFree_iff_independent {A S : Finset ℝ} (hSA : S ⊆ A) :
+  SidonPaper.IsAPFree ↑S ↔ (SidonPaper.apHypergraph A).Independent S
+'SidonPaper.apFree_iff_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.apHypergraph_alpha (A : Finset ℝ) : (SidonPaper.apHypergraph A).alpha = SidonPaper.apIndependenceNumber A
+'SidonPaper.apHypergraph_alpha' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.h_eq_hypergraph_alpha {A : Finset ℝ} (hw : SidonPaper.IsWeakSidon ↑A) :
+  SidonPaper.h A = (SidonPaper.apHypergraph A).alpha
+'SidonPaper.h_eq_hypergraph_alpha' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.h_add_hypergraph_tau {A : Finset ℝ} (hw : SidonPaper.IsWeakSidon ↑A) :
+  SidonPaper.h A + (SidonPaper.apHypergraph A).tau = A.card
+'SidonPaper.h_add_hypergraph_tau' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.apHypergraph_uniform (A : Finset ℝ) : (SidonPaper.apHypergraph A).ThreeUniform
+'SidonPaper.apHypergraph_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.apHypergraph_linear {A : Finset ℝ} (hA : SidonPaper.IsFourFive A) : (SidonPaper.apHypergraph A).Linear
+'SidonPaper.apHypergraph_linear' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.unorderedAP_of_apHyperedge {A : Finset ℝ} {a b c : ℝ} (hab : a ≠ b) (hac : a ≠ c) (hbc : b ≠ c)
+  (he : {a, b, c} ∈ (SidonPaper.apHypergraph A).edges) : SidonPaper.IsUnorderedAP a b c
+'SidonPaper.unorderedAP_of_apHyperedge' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.apHypergraph_F7_free {A : Finset ℝ} (hw : SidonPaper.IsWeakSidon ↑A) :
+  ¬(SidonPaper.apHypergraph A).ContainsF7
+'SidonPaper.apHypergraph_F7_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.fourFive_apHypergraph_F7_free {A : Finset ℝ} (hA : SidonPaper.IsFourFive A) :
+  ¬(SidonPaper.apHypergraph A).ContainsF7
+'SidonPaper.fourFive_apHypergraph_F7_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.sidon_intCast_iff (S : Finset ℤ) :
+  SidonPaper.IsSidon (Int.cast '' ↑S) ↔ SidonPaper.Certificate.SidonByPairs S
+'SidonPaper.sidon_intCast_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.witness_sidon_real : SidonPaper.IsSidon (Int.cast '' ↑SidonPaper.Certificate.witness)
+'SidonPaper.witness_sidon_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.deleteVertices_vertices.{u_1} {α : Type u_1} [DecidableEq α]
+  (H : SidonPaper.FiniteHypergraph α) (S : Finset α) : (H.deleteVertices S).vertices = H.vertices \ S
+'SidonPaper.FiniteHypergraph.deleteVertices_vertices' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.deleteVertices_edges.{u_1} {α : Type u_1} [DecidableEq α]
+  (H : SidonPaper.FiniteHypergraph α) (S : Finset α) : (H.deleteVertices S).edges = {e ∈ H.edges | Disjoint e S}
+'SidonPaper.FiniteHypergraph.deleteVertices_edges' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.deleteVertices_uniform.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (hH : H.ThreeUniform) (S : Finset α) : (H.deleteVertices S).ThreeUniform
+'SidonPaper.FiniteHypergraph.deleteVertices_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.deleteVertices_edge_accounting.{u_1} {α : Type u_1} [DecidableEq α]
+  (H : SidonPaper.FiniteHypergraph α) (S : Finset α) :
+  (H.deleteVertices S).edges.card + (H.removedEdges S).card = H.edges.card
+'SidonPaper.FiniteHypergraph.deleteVertices_edge_accounting' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.deleteVertices_vertex_accounting.{u_1} {α : Type u_1} [DecidableEq α]
+  (H : SidonPaper.FiniteHypergraph α) {S : Finset α} (hS : S ⊆ H.vertices) :
+  (H.deleteVertices S).vertices.card + S.card = H.vertices.card
+'SidonPaper.FiniteHypergraph.deleteVertices_vertex_accounting' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SidonPaper.FiniteHypergraph.transversal_deleteVertices_extend.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {S P T : Finset α} (hT : (H.deleteVertices S).Transversal T)
+  (hP : ∀ e ∈ H.removedEdges S, ∃ x ∈ e, x ∈ P) : H.Transversal (T ∪ P)
+'SidonPaper.FiniteHypergraph.transversal_deleteVertices_extend' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SidonPaper.FiniteHypergraph.transversal_four_lift.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {S P : Finset α} (hS : S ⊆ H.vertices) (hPsub : P ⊆ H.vertices)
+  (hP : ∀ e ∈ H.removedEdges S, ∃ x ∈ e, x ∈ P) (hpay : 4 * P.card ≤ S.card + (H.removedEdges S).card)
+  (hdel : 4 * (H.deleteVertices S).tau ≤ (H.deleteVertices S).vertices.card + (H.deleteVertices S).edges.card) :
+  4 * H.tau ≤ H.vertices.card + H.edges.card
+'SidonPaper.FiniteHypergraph.transversal_four_lift' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.removedEdges_singleton.{u_1} {α : Type u_1} [DecidableEq α]
+  (H : SidonPaper.FiniteHypergraph α) (x : α) : H.removedEdges {x} = H.incidentEdges x
+'SidonPaper.FiniteHypergraph.removedEdges_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.transversal_four_high_degree.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {x : α} (hx : x ∈ H.vertices) (hdeg : 3 ≤ H.degree x)
+  (hdel : 4 * (H.deleteVertices {x}).tau ≤ (H.deleteVertices {x}).vertices.card + (H.deleteVertices {x}).edges.card) :
+  4 * H.tau ≤ H.vertices.card + H.edges.card
+'SidonPaper.FiniteHypergraph.transversal_four_high_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.high_degree_counterexample_reduction.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {x : α} (hx : x ∈ H.vertices) (hdeg : 3 ≤ H.degree x)
+  (hbad : H.vertices.card + H.edges.card < 4 * H.tau) :
+  (H.deleteVertices {x}).vertices.card < H.vertices.card ∧
+    (H.deleteVertices {x}).vertices.card + (H.deleteVertices {x}).edges.card < 4 * (H.deleteVertices {x}).tau
+'SidonPaper.FiniteHypergraph.high_degree_counterexample_reduction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SidonPaper.FiniteHypergraph.edge_eq_of_degree_one.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {x : α} {e f : Finset α} (hx : H.degree x = 1) (he : e ∈ H.edges) (hxe : x ∈ e)
+  (hf : f ∈ H.edges) (hxf : x ∈ f) : f = e
+'SidonPaper.FiniteHypergraph.edge_eq_of_degree_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.removedEdges_pair_of_degree_one.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {a b : α} {e : Finset α} (he : e ∈ H.edges) (ha : a ∈ e) (hb : b ∈ e)
+  (hdeg : H.degree b = 1) : H.removedEdges {a, b} = H.incidentEdges a
+'SidonPaper.FiniteHypergraph.removedEdges_pair_of_degree_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.transversal_four_mixed_edge.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {a b : α} {e : Finset α} (he : e ∈ H.edges) (ha : a ∈ e) (hb : b ∈ e)
+  (hab : a ≠ b) (hda : 2 ≤ H.degree a) (hdb : H.degree b = 1)
+  (hdel :
+    4 * (H.deleteVertices {a, b}).tau ≤
+      (H.deleteVertices {a, b}).vertices.card + (H.deleteVertices {a, b}).edges.card) :
+  4 * H.tau ≤ H.vertices.card + H.edges.card
+'SidonPaper.FiniteHypergraph.transversal_four_mixed_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.removedEdges_isolated_edge.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {e : Finset α} (he : e ∈ H.edges) (hdeg : ∀ x ∈ e, H.degree x = 1) :
+  H.removedEdges e = {e}
+'SidonPaper.FiniteHypergraph.removedEdges_isolated_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.transversal_four_isolated_edge.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (h3 : H.ThreeUniform) {e : Finset α} (he : e ∈ H.edges)
+  (hdeg : ∀ x ∈ e, H.degree x = 1)
+  (hdel : 4 * (H.deleteVertices e).tau ≤ (H.deleteVertices e).vertices.card + (H.deleteVertices e).edges.card) :
+  4 * H.tau ≤ H.vertices.card + H.edges.card
+'SidonPaper.FiniteHypergraph.transversal_four_isolated_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.tau_eq_zero_of_edges_empty.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (he : H.edges = ∅) : H.tau = 0
+'SidonPaper.FiniteHypergraph.tau_eq_zero_of_edges_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.transversal_four_isolated_vertex.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {x : α} (hx : x ∈ H.vertices) (hdeg : H.degree x = 0)
+  (hdel : 4 * (H.deleteVertices {x}).tau ≤ (H.deleteVertices {x}).vertices.card + (H.deleteVertices {x}).edges.card) :
+  4 * H.tau ≤ H.vertices.card + H.edges.card
+'SidonPaper.FiniteHypergraph.transversal_four_isolated_vertex' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SidonPaper.FiniteHypergraph.counterexample_has_deletion_minimal_two_regular.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (h3 : H.ThreeUniform) (hbad : H.vertices.card + H.edges.card < 4 * H.tau) :
+  ∃ K,
+    K.ThreeUniform ∧
+      (∀ x ∈ K.vertices, K.degree x = 2) ∧
+        K.vertices.card + K.edges.card < 4 * K.tau ∧
+          (∀ S ⊆ K.vertices,
+              S.Nonempty →
+                4 * (K.deleteVertices S).tau ≤ (K.deleteVertices S).vertices.card + (K.deleteVertices S).edges.card) ∧
+            K.vertices.card ≤ H.vertices.card
+'SidonPaper.FiniteHypergraph.counterexample_has_deletion_minimal_two_regular' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SidonPaper.FiniteHypergraph.counterexample_has_two_regular.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (h3 : H.ThreeUniform) (hbad : H.vertices.card + H.edges.card < 4 * H.tau) :
+  ∃ K,
+    K.ThreeUniform ∧
+      (∀ x ∈ K.vertices, K.degree x = 2) ∧
+        K.vertices.card + K.edges.card < 4 * K.tau ∧ K.vertices.card ≤ H.vertices.card
+'SidonPaper.FiniteHypergraph.counterexample_has_two_regular' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.incidentEdges_eq_pair.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {x : α} {e f : Finset α} (hdeg : H.degree x = 2) (he : e ∈ H.edges)
+  (hf : f ∈ H.edges) (hxe : x ∈ e) (hxf : x ∈ f) (hef : e ≠ f) : H.incidentEdges x = {e, f}
+'SidonPaper.FiniteHypergraph.incidentEdges_eq_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.transversal_four_double_intersection.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {e f : Finset α} {a b : α} (he : e ∈ H.edges) (hf : f ∈ H.edges) (hef : e ≠ f)
+  (hae : a ∈ e) (haf : a ∈ f) (hbe : b ∈ e) (hbf : b ∈ f) (hab : a ≠ b) (hda : H.degree a = 2) (hdb : H.degree b = 2)
+  (hdel :
+    4 * (H.deleteVertices {a, b}).tau ≤
+      (H.deleteVertices {a, b}).vertices.card + (H.deleteVertices {a, b}).edges.card) :
+  4 * H.tau ≤ H.vertices.card + H.edges.card
+'SidonPaper.FiniteHypergraph.transversal_four_double_intersection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SidonPaper.FiniteHypergraph.counterexample_has_deletion_minimal_linear_two_regular.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (h3 : H.ThreeUniform) (hbad : H.vertices.card + H.edges.card < 4 * H.tau) :
+  ∃ K,
+    K.ThreeUniform ∧
+      K.Linear ∧
+        (∀ x ∈ K.vertices, K.degree x = 2) ∧
+          K.vertices.card + K.edges.card < 4 * K.tau ∧
+            (∀ S ⊆ K.vertices,
+                S.Nonempty →
+                  4 * (K.deleteVertices S).tau ≤ (K.deleteVertices S).vertices.card + (K.deleteVertices S).edges.card) ∧
+              K.vertices.card ≤ H.vertices.card
+'SidonPaper.FiniteHypergraph.counterexample_has_deletion_minimal_linear_two_regular' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SidonPaper.FiniteHypergraph.counterexample_has_linear_two_regular.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (h3 : H.ThreeUniform) (hbad : H.vertices.card + H.edges.card < 4 * H.tau) :
+  ∃ K,
+    K.ThreeUniform ∧
+      K.Linear ∧
+        (∀ x ∈ K.vertices, K.degree x = 2) ∧
+          K.vertices.card + K.edges.card < 4 * K.tau ∧ K.vertices.card ≤ H.vertices.card
+'SidonPaper.FiniteHypergraph.counterexample_has_linear_two_regular' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SidonPaper.FiniteHypergraph.exists_other_incident_edge.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {e : Finset α} {x : α} (he : e ∈ H.edges) (hx : x ∈ e) (hd : H.degree x = 2) :
+  ∃ f ∈ H.edges, x ∈ f ∧ e ≠ f
+'SidonPaper.FiniteHypergraph.exists_other_incident_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.dualGraph_two_neighbors.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (h3 : H.ThreeUniform) (hl : H.Linear) (h2 : ∀ x ∈ H.vertices, H.degree x = 2)
+  (e : ↥H.edges) : ∃ f g, H.dualGraph.Adj e f ∧ H.dualGraph.Adj e g ∧ f ≠ g
+'SidonPaper.FiniteHypergraph.dualGraph_two_neighbors' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.dualGraph_shortest_cycle.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (h3 : H.ThreeUniform) (hl : H.Linear) (h2 : ∀ x ∈ H.vertices, H.degree x = 2)
+  (hne : H.edges.Nonempty) : ∃ a w, w.IsCycle ∧ H.dualGraph.egirth = ↑w.length
+'SidonPaper.FiniteHypergraph.dualGraph_shortest_cycle' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.incidentEdges_injective_on.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (hl : H.Linear) (h2 : ∀ x ∈ H.vertices, H.degree x = 2) :
+  Set.InjOn H.incidentEdges ↑H.vertices
+'SidonPaper.FiniteHypergraph.incidentEdges_injective_on' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.dualIncidence_vertices.{u_1} {α : Type u_1} [DecidableEq α]
+  (H : SidonPaper.FiniteHypergraph α) (h2 : ∀ x ∈ H.vertices, H.degree x = 2) : (H.dualIncidence h2).vertices = H.edges
+'SidonPaper.FiniteHypergraph.dualIncidence_vertices' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.dualIncidence_edges.{u_1} {α : Type u_1} [DecidableEq α] (H : SidonPaper.FiniteHypergraph α)
+  (h2 : ∀ x ∈ H.vertices, H.degree x = 2) : (H.dualIncidence h2).edges = Finset.image H.incidentEdges H.vertices
+'SidonPaper.FiniteHypergraph.dualIncidence_edges' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.dualIncidence_edges_card.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (hl : H.Linear) (h2 : ∀ x ∈ H.vertices, H.degree x = 2) :
+  (H.dualIncidence h2).edges.card = H.vertices.card
+'SidonPaper.FiniteHypergraph.dualIncidence_edges_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.dualIncidence_two_uniform.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (h2 : ∀ x ∈ H.vertices, H.degree x = 2) (e : Finset (Finset α)) :
+  e ∈ (H.dualIncidence h2).edges → e.card = 2
+'SidonPaper.FiniteHypergraph.dualIncidence_two_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.dualIncidence_incidentEdges.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (h2 : ∀ x ∈ H.vertices, H.degree x = 2) {e : Finset α} (he : e ∈ H.edges) :
+  (H.dualIncidence h2).incidentEdges e = Finset.image H.incidentEdges e
+'SidonPaper.FiniteHypergraph.dualIncidence_incidentEdges' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.dualIncidence_degree_three.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (h3 : H.ThreeUniform) (hl : H.Linear) (h2 : ∀ x ∈ H.vertices, H.degree x = 2)
+  {e : Finset α} (he : e ∈ H.edges) : (H.dualIncidence h2).degree e = 3
+'SidonPaper.FiniteHypergraph.dualIncidence_degree_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.mem_matchingSupport.{u_1} {α : Type u_1} [DecidableEq α] {M : Finset (Finset α)} {x : α} :
+  x ∈ SidonPaper.FiniteHypergraph.matchingSupport M ↔ ∃ e ∈ M, x ∈ e
+'SidonPaper.FiniteHypergraph.mem_matchingSupport' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.exists_maximum_edgeMatching.{u_1} {α : Type u_1} (H : SidonPaper.FiniteHypergraph α) :
+  ∃ M, H.EdgeMatching M ∧ ∀ (N : Finset (Finset α)), H.EdgeMatching N → N.card ≤ M.card
+'SidonPaper.FiniteHypergraph.exists_maximum_edgeMatching' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.maximum_matching_hits_edges.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {M : Finset (Finset α)} (hM : H.EdgeMatching M)
+  (hmax : ∀ (N : Finset (Finset α)), H.EdgeMatching N → N.card ≤ M.card) {e : Finset α} (he : e ∈ H.edges) :
+  ¬Disjoint e (SidonPaper.FiniteHypergraph.matchingSupport M)
+'SidonPaper.FiniteHypergraph.maximum_matching_hits_edges' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.maximum_matching_no_three_augment.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {M : Finset (Finset α)} (hM : H.EdgeMatching M)
+  (hmax : ∀ (N : Finset (Finset α)), H.EdgeMatching N → N.card ≤ M.card) {u v x y : α} (huv : u ≠ v) (hxy : x ≠ y)
+  (heM : {u, v} ∈ M) (hx : x ∉ SidonPaper.FiniteHypergraph.matchingSupport M)
+  (hy : y ∉ SidonPaper.FiniteHypergraph.matchingSupport M) (hux : {u, x} ∈ H.edges) (hvy : {v, y} ∈ H.edges) : False
+'SidonPaper.FiniteHypergraph.maximum_matching_no_three_augment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SidonPaper.FiniteHypergraph.outsideNeighbors_card_le_two.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {M : Finset (Finset α)} (hM : H.EdgeMatching M)
+  (hdeg : ∀ x ∈ H.vertices, H.degree x ≤ 3) {u v : α} (huv : u ≠ v) (heM : {u, v} ∈ M) :
+  (H.outsideNeighbors M u).card ≤ 2
+'SidonPaper.FiniteHypergraph.outsideNeighbors_card_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.outsideNeighbors_pair_card_le_two.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {M : Finset (Finset α)} (hM : H.EdgeMatching M)
+  (hmax : ∀ (N : Finset (Finset α)), H.EdgeMatching N → N.card ≤ M.card) (hdeg : ∀ x ∈ H.vertices, H.degree x ≤ 3)
+  {u v : α} (huv : u ≠ v) (heM : {u, v} ∈ M) : (H.outsideNeighbors M u).card + (H.outsideNeighbors M v).card ≤ 2
+'SidonPaper.FiniteHypergraph.outsideNeighbors_pair_card_le_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SidonPaper.FiniteHypergraph.crossEdges_card_le_two.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {M : Finset (Finset α)} (hM : H.EdgeMatching M)
+  (hmax : ∀ (N : Finset (Finset α)), H.EdgeMatching N → N.card ≤ M.card) (h2 : ∀ e ∈ H.edges, e.card = 2)
+  (hdeg : ∀ x ∈ H.vertices, H.degree x ≤ 3) {e : Finset α} (heM : e ∈ M) : (H.crossEdges M e).card ≤ 2
+'SidonPaper.FiniteHypergraph.crossEdges_card_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.matchingSupport_card.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {M : Finset (Finset α)} (hM : H.EdgeMatching M) (h2 : ∀ e ∈ H.edges, e.card = 2) :
+  (SidonPaper.FiniteHypergraph.matchingSupport M).card = 2 * M.card
+'SidonPaper.FiniteHypergraph.matchingSupport_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.externalEdges_card_le.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {M : Finset (Finset α)} (hM : H.EdgeMatching M)
+  (hmax : ∀ (N : Finset (Finset α)), H.EdgeMatching N → N.card ≤ M.card) (h2 : ∀ e ∈ H.edges, e.card = 2)
+  (hdeg : ∀ x ∈ H.vertices, H.degree x ≤ 3) : (H.externalEdges M).card ≤ 2 * M.card
+'SidonPaper.FiniteHypergraph.externalEdges_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.maximum_matching_quarter.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} {M : Finset (Finset α)} (hM : H.EdgeMatching M)
+  (hmax : ∀ (N : Finset (Finset α)), H.EdgeMatching N → N.card ≤ M.card) (h2 : ∀ e ∈ H.edges, e.card = 2)
+  (hdeg : ∀ x ∈ H.vertices, H.degree x ≤ 3) : H.edges.card ≤ 4 * M.card
+'SidonPaper.FiniteHypergraph.maximum_matching_quarter' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.exists_matching_quarter.{u_1} {α : Type u_1} [DecidableEq α]
+  (H : SidonPaper.FiniteHypergraph α) (h2 : ∀ e ∈ H.edges, e.card = 2) (hdeg : ∀ x ∈ H.vertices, H.degree x ≤ 3) :
+  ∃ M, H.EdgeMatching M ∧ H.edges.card ≤ 4 * M.card
+'SidonPaper.FiniteHypergraph.exists_matching_quarter' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.tau_le_edges.{u_1} {α : Type u_1} [DecidableEq α] (H : SidonPaper.FiniteHypergraph α) :
+  H.tau ≤ H.edges.card
+'SidonPaper.FiniteHypergraph.tau_le_edges' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.tau_le_delete_add_card.{u_1} {α : Type u_1} [DecidableEq α]
+  (H : SidonPaper.FiniteHypergraph α) {P : Finset α} (hP : P ⊆ H.vertices) : H.tau ≤ (H.deleteVertices P).tau + P.card
+'SidonPaper.FiniteHypergraph.tau_le_delete_add_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.tau_add_card_le_edges_of_double_coverage.{u_1} {α : Type u_1} [DecidableEq α]
+  (H : SidonPaper.FiniteHypergraph α) {P : Finset α} (hP : P ⊆ H.vertices)
+  (hdouble : (H.removedEdges P).card = 2 * P.card) : H.tau + P.card ≤ H.edges.card
+'SidonPaper.FiniteHypergraph.tau_add_card_le_edges_of_double_coverage' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SidonPaper.FiniteHypergraph.sum_card_edges_eq_sum_degree.{u_1} {α : Type u_1} [DecidableEq α]
+  (H : SidonPaper.FiniteHypergraph α) : ∑ e ∈ H.edges, e.card = ∑ x ∈ H.vertices, H.degree x
+'SidonPaper.FiniteHypergraph.sum_card_edges_eq_sum_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.three_edges_eq_two_vertices.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (h3 : H.ThreeUniform) (h2 : ∀ x ∈ H.vertices, H.degree x = 2) :
+  3 * H.edges.card = 2 * H.vertices.card
+'SidonPaper.FiniteHypergraph.three_edges_eq_two_vertices' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.transversal_four_of_double_coverage.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (h3 : H.ThreeUniform) (h2 : ∀ x ∈ H.vertices, H.degree x = 2) {P : Finset α}
+  (hP : P ⊆ H.vertices) (hdouble : (H.removedEdges P).card = 2 * P.card) (hsize : H.vertices.card ≤ 4 * P.card) :
+  4 * H.tau ≤ H.vertices.card + H.edges.card
+'SidonPaper.FiniteHypergraph.transversal_four_of_double_coverage' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SidonPaper.FiniteHypergraph.removedEdges_eq_biUnion.{u_1} {α : Type u_1} [DecidableEq α]
+  (H : SidonPaper.FiniteHypergraph α) (P : Finset α) : H.removedEdges P = P.biUnion H.incidentEdges
+'SidonPaper.FiniteHypergraph.removedEdges_eq_biUnion' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.dualMatching_pullback.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (hl : H.Linear) (h2 : ∀ x ∈ H.vertices, H.degree x = 2)
+  {M : Finset (Finset (Finset α))} (hM : (H.dualIncidence h2).EdgeMatching M) :
+  ∃ P ⊆ H.vertices, Finset.image H.incidentEdges P = M ∧ P.card = M.card ∧ (H.removedEdges P).card = 2 * P.card
+'SidonPaper.FiniteHypergraph.dualMatching_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.FiniteHypergraph.transversal_four_of_dual_matching.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (h3 : H.ThreeUniform) (hl : H.Linear) (h2 : ∀ x ∈ H.vertices, H.degree x = 2)
+  {M : Finset (Finset (Finset α))} (hM : (H.dualIncidence h2).EdgeMatching M)
+  (hsize : (H.dualIncidence h2).edges.card ≤ 4 * M.card) : 4 * H.tau ≤ H.vertices.card + H.edges.card
+'SidonPaper.FiniteHypergraph.transversal_four_of_dual_matching' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SidonPaper.FiniteHypergraph.transversal_four_linear_two_regular.{u_1} {α : Type u_1} [DecidableEq α]
+  {H : SidonPaper.FiniteHypergraph α} (h3 : H.ThreeUniform) (hl : H.Linear) (h2 : ∀ x ∈ H.vertices, H.degree x = 2) :
+  4 * H.tau ≤ H.vertices.card + H.edges.card
+'SidonPaper.FiniteHypergraph.transversal_four_linear_two_regular' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+SidonPaper.FiniteHypergraph.transversal_four.{u_1} {α : Type u_1} {H : SidonPaper.FiniteHypergraph α}
+  (h3 : H.ThreeUniform) : 4 * H.tau ≤ H.vertices.card + H.edges.card
+'SidonPaper.FiniteHypergraph.transversal_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.one_le_h_of_nonempty {A : Finset ℝ} (hA : A.Nonempty) : 1 ≤ SidonPaper.h A
+'SidonPaper.one_le_h_of_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.g_lower {n : ℕ} (hn : 1 ≤ n) : (n + 2) / 2 ≤ SidonPaper.g n
+'SidonPaper.g_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.theorem_1_3 : SidonPaper.Theorem_1_3
+'SidonPaper.theorem_1_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.theorem_1_2 : SidonPaper.Theorem_1_2
+'SidonPaper.theorem_1_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.realImage_card (S : Finset ℤ) : (SidonPaper.realImage S).card = S.card
+'SidonPaper.realImage_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.realImage_coe (S : Finset ℤ) : ↑(SidonPaper.realImage S) = Int.cast '' ↑S
+'SidonPaper.realImage_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.differences_realImage (S : Finset ℤ) :
+  SidonPaper.differences (SidonPaper.realImage S) = SidonPaper.realImage (SidonPaper.Certificate.positiveDifferences S)
+'SidonPaper.differences_realImage' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.fourFive_realImage {S : Finset ℤ} (hS : SidonPaper.Certificate.FourFiveByCount S) :
+  SidonPaper.IsFourFive (SidonPaper.realImage S)
+'SidonPaper.fourFive_realImage' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.lemma_5_1 :
+  (SidonPaper.realImage SidonPaper.Certificate.base).card = 14 ∧
+    SidonPaper.IsFourFive (SidonPaper.realImage SidonPaper.Certificate.base) ∧
+      SidonPaper.h (SidonPaper.realImage SidonPaper.Certificate.base) = 8
+'SidonPaper.lemma_5_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.weak_not_fourFive_example :
+  SidonPaper.IsWeakSidon ↑(SidonPaper.realImage {1, 2, 3, 5}) ∧
+    ¬SidonPaper.IsFourFive (SidonPaper.realImage {1, 2, 3, 5})
+'SidonPaper.weak_not_fourFive_example' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.fourFive_not_sidon_example :
+  SidonPaper.IsFourFive (SidonPaper.realImage {1, 2, 3, 6}) ∧ ¬SidonPaper.IsSidon ↑(SidonPaper.realImage {1, 2, 3, 6})
+'SidonPaper.fourFive_not_sidon_example' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonPaper.cStar_le_four_sevenths : SidonPaper.cStar ≤ 4 / 7
+'SidonPaper.cStar_le_four_sevenths' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,48 @@
+{
+  "target": "arxiv:2602.23282v2 full paper",
+  "date": "2026-10-21",
+  "status": "full_formalization_not_completed",
+  "lean_version": "4.35.0-rc4",
+  "mathlib_commit": "49fd9dee36e7bbf345fe7981d2de6aeeb591f75b",
+  "verified_main_progress": [
+    "SidonPaper.theorem_1_2",
+    "SidonPaper.theorem_1_3",
+    "SidonPaper.theorem_1_5",
+    "SidonPaper.FiniteHypergraph.transversal_four",
+    "SidonPaper.cStar_le_four_sevenths",
+    "SidonPaper.lemma_5_1",
+    "SidonPaper.construction_h",
+    "SidonPaper.fourFive_apHypergraph_F7_free"
+  ],
+  "lean_build_status": "34 source modules and umbrella rebuilt; complete dependency closure exit0;216 public theorem axiom audits exit0",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "literature_complete": false,
+  "full_text_reviewed": 1,
+  "unique_arxiv_reviewed": 1,
+  "source_fidelity_status": "Independent PASS for reduction, matching, dual, packing, full4.6, exact1.3 and limit1.2; earlier verified chains retained",
+  "remaining_obligations": [
+    "Theorem5.3:17*tau(H)<=5|V(H)|+3|E(H)| for every finite3uniform linear F7free hypergraph; no kernel-checked proof or matching library import available.",
+    "Lower9/17 in Theorem1.6 using5.3; upper4/7 already proved.",
+    "Historical inequality(1) and explicit weak-Sidon APnonlinearity witness under literal all-assertions scope; see coverage.tsv."
+  ],
+  "next_executable_step": "Obtain full Henning\u2013Yeo2021 Theorem7 proof and internal dependencies, or construct and formalize an independent proof of5.3 in FiniteHypergraph; then derive lower1.6.",
+  "agents": [
+    "/root/degree_two_transversal",
+    "/root/short_cycle_bound",
+    "/root/retry_referee",
+    "/root/retrieve_henning_full"
+  ],
+  "novelty_status": "reproduction; no novelty claimed",
+  "round": 3,
+  "public_theorems_audited": 216,
+  "literature_discovered": 6,
+  "literature_screened": 6,
+  "used_in_proof": 0,
+  "palomar_status": "User authorized partial submission. Packaging and preflight in progress; no submission or registration receipt yet.",
+  "consensus_status": "Attempted; monthly search quota exhausted; no thread created or results retrieved",
+  "source_hashes": "verification/source-hashes-round3.json"
+}

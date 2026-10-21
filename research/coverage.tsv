@@ -1,0 +1,55 @@
+source_id	kind	statement	dependencies	lean_mapping	status	remaining_obligations
+1.1	problem	Existence and value of lim g(n)/n	1.2	theorem_1_2;ceiling_half_ratio_tendsto	verified	
+1.2	theorem	lim g(n)/n = 1/2	1.3 plus ceiling/cast limit, or3.4+4.1-4.6	theorem_1_2;ceiling_half_ratio_tendsto	verified	
+1.3	theorem	g(n)=ceil((n+1)/2) for n≥1	2.3;2.4;4.1-4.6; admissible extrema	theorem_1_3;g_lower;g_upper	verified	
+1.4	problem	Optimal universal finite Sidon density for(4,5)-sets	1.5;1.6	cStar	definition_only	Paper gives bounds rather than exact optimal value
+1.5	theorem	lim f(n)/n=cStar=inf_{n≥1}f(n)/n	3.1;3.5-3.7; existence/attainment	theorem_1_5;cStar_eq_inf_f_ratio;f_ratio_tendsto_inf	verified_this_round	
+1.6	theorem	9/17≤cStar≤4/7	Lower:2.2-2.5;5.2;5.3. Upper:5.1	cStar_le_four_sevenths;Theorem_1_6	upper_bound_verified	Lower bound unproved; conjunction Prop does not prove either side
+1.7	definition	AP hypergraph of finite ordered real set	finite set; strict order;3AP equation	apEdges;apHypergraph	defined_and_bridged_verified	
+2.1	proposition	Every Sidon set is a(4,5)-set	Injective positive-difference map	IsSidon.fourFive;IsSidon.differences_card	verified_this_round	
+2.2	proposition	Every(4,5)-set is weak Sidon	Four-point equal-sum collision→at most4differences	IsFourFive.weakSidon;equal_sum_differences_le	verified_this_round	
+2.3	lemma	Sidon iff no nonconstant3AP for subsets of weakSidon;h=alpha	weakSidon hereditary; repeated summands	sidon_iff_apFree;sidon_subset_iff_apFree;h_eq_hypergraph_alpha	verified	
+2.4	lemma	Midpoint map injective;AP edge count≤n-2 for n≥2	weakSidon;strict midpoint order;finite extrema	ap_endpoints_unique;apEdges_card_le;apHypergraph_edges_card_le	verified	
+2.5	lemma	AP hypergraph of(4,5)-set is linear	2.2;2.4;two shared AP vertices classification	apEdges_linear;apHypergraph_linear	verified_this_round	
+3.1	lemma	Fekete limit and inf identity	Normalized ratios bounded below; subadditivity	fekete_nonnegative;g_ratio_tendsto_inf;f_ratio_tendsto_inf	corrected_applications_verified	Printed unrestricted real-valued statement false; correct lowerbounded version used and hypotheses fully discharged
+3.2	lemma	Positive affine maps preserve weakSidon and h	Affine injectivity; additive relation preservation; subset pullback	weakSidon_affine_iff;weakSidon_affineImage_iff;h_affineImage	verified_this_round	
+3.3	lemma	Affine gluing of weakSidon sets with additive card and subadditive h	3.2;finite forbidden ratios;large shift;empty cases	weakSidon_affine_gluing	verified_this_round	
+3.4	proposition	g(m+n)≤g(m)+g(n) for positive m,n	3.3;admissible extrema attainment	g_subadditive	verified_this_round	Stronger includes indexzero
+3.5	lemma	Positive affine maps preserve(4,5) iff and h	Difference scaling/injectivity;subset pullback	fourFive_affineImage_iff;h_affineImage	verified_this_round	
+3.6	lemma	Affine gluing of(4,5)-sets with additive card and subadditive h	3.5;finite forbidden ratios;large shift	fourFive_affine_gluing	verified_this_round	
+3.7	proposition	f(m+n)≤f(m)+f(n) for positive m,n	3.6;admissible extrema attainment	f_subadditive	verified_this_round	Stronger includes indexzero
+4.1	lemma	Distinct-valuation pair sum determines unordered pair	v3 sum-min law;valuation strata;mod3 residue discrimination;4.2 mixed exclusion	construction_mixed_pair_unique;construction_mixed_pair_ne_equal_sum	verified_split_declarations_this_round	Mixedcompetitor uniqueness plus equalcompetitor exclusion together give exact source;wrapper optional
+4.2	lemma	Equal-valuation pairs unique;exclude unequal-valuation competing pair	valuation strata;X/Y relations;positivity	construction_equal_pair_unique;construction_mixed_pair_ne_equal_sum	verified_split_declarations_this_round	Equalcompetitor uniqueness plus mixedcompetitor exclusion together give exact source;wrapper optional
+4.3	proposition	Construction A_(2n+1) is weakSidon for n≥2	4.1;4.2	construction_weakSidon_nat;construction_weakSidon_real	verified_this_round	Stronger includes parameter0and1
+4.4	lemma	Exactly2n-1listed AP triples in construction	4.3;2.4;card construction;distinct listed triples	construction_ap_classification;constructionAPs_card;mem_constructionAPs_iff	verified_this_round	Exact lists and count, Nat representation faithfully embeds in reals
+4.5	theorem	h(A_(2n+1))=n+1	4.3;4.4;2.3;index interval exclusion count	construction_h;constructionYBlock_sidon;construction_subset_card_bound	verified_this_round	IndependentconstructionagentreviewPASS;awaitfinalintegratedrebuild
+4.6	theorem_external	For every finite3-uniform H,4tau≤n+m	Chvatal-McDiarmid1992 orTuza1990;full proof required	FiniteHypergraph.transversal_four	verified	
+5.1	lemma	14point base is(4,5) and h=8	Integer kernel certificates;integer-real transport;allsubset pullback	lemma_5_1	verified	
+5.2	lemma_external	AP hypergraph of(4,5)-set avoids five-edge F7	2.2 plus weakSidon F7orientation contradiction;generic containment bridge	fourFive_apHypergraph_F7_free;apHypergraph_F7_free;weakSidon_no_F7_configuration	verified_this_round	Stronger weakSidon result also proved
+5.3	theorem_external	Linear3-uniform F7-free H has17tau≤5n+3m	Henning-Yeo2021Theorem7 orfull alternative proof		unproved	General17tau inequality remains unproved; full source proof inaccessible after retry; no assumed axiom or conditional substitute.
+D-Sidon	definition	Uniqueness of sums of nondecreasing pairs, repetition allowed		IsSidon	defined_faithfully	
+D-weakSidon	definition	Uniqueness of sums of strictly increasing pairs		IsWeakSidon	defined_faithfully	
+D-h	definition	Maximum cardinality over Sidon subsets of finiteA	nonempty finite powerset	h;h_attained	defined_and_attained_verified	
+D-g	definition	Minimum h over npoint weakSidon real sets	Admissible family nonempty;Nat inf attained	g;g_admissible_nonempty;g_attained	defined_and_attained_verified	
+D-fourFive	definition	Every4subset yields≥5distinct absolute differences		differences;IsFourFive	defined_faithfully	Positive orientation equivalent to unordered absolute difference convention
+D-f	definition	Minimum h over npoint(4,5)real sets	Admissible family nonempty;Nat inf attained	f;f_admissible_nonempty;f_attained	defined_and_attained_verified	
+D-cStar	definition	Best constant valid for every nonempty finite(4,5)set	Universal feasible constant set;optimality	cStar;cStar_eq_inf_f_ratio;cStar_le_four_sevenths	defined_and_characterized_verified	Positive9/17lowerbound remains
+D-gamma	definition	WeakSidon asymptotic constant	1.2	theorem_1_2;ceiling_half_ratio_tendsto	verified	
+D-alpha	definition	Independence number of AP hypergraph	NoAP independent subsets	FiniteHypergraph.alpha;apHypergraph_alpha	defined_and_bridged_verified	
+D-tau	definition	Minimum transversal cardinality of finite hypergraph	Generic hypergraph and edge hitting	FiniteHypergraph.tau;FiniteHypergraph.tau_attained	defined_and_attained_verified	
+D-nm	definition	Vertex and edge counts of hypergraph	Generic hypergraph	FiniteHypergraph.vertices.card;FiniteHypergraph.edges.card;apHyperedges_card	defined_and_bridged_verified	
+D-midpoint	definition	AP edge midpoint	Sorted canonical AP triple	fun p=>p.2.1	represented	
+D-linear	definition	Distinct edges intersect in at most1vertex	Finite edge sets	FiniteHypergraph.Linear;apHypergraph_linear	defined_and_AP_verified	
+D-F7	definition	7vertices;edges012,034,056,135,246		F7;FiniteHypergraph.ContainsF7;fourFive_apHypergraph_F7_free	defined_and_AP_avoidance_verified	Exactfiveedge noninduced containment
+D-affine	definition	qA+t with q>0		affineImage	defined_this_round	
+D-ratios	definition	Finite forbidden ratios (a-a')/(b-b') with b≠b'	FiniteA,B	exists_positive_mixed_injective local finiteR	defined_and_used_verified	Avoids even extra zero-denominator ratio values;valid finiteavoidance
+D-valuation	definition	v3 positive-integer3adic valuation	Mathlib padicValNat3	padicValNat3;val3_X;val3_Y;val3_add_of_ne	library_definition_and_source_properties_verified	Zero excluded by construction_pos
+D-XY	definition	X_i=2^(n-i)3^i andY_i=2^(n-i+1)3^i on valid domains		X;Y	defined_faithfully	Nat subtraction safe on source index domains
+D-construction	definition	Union X_0..X_(n-1)andY_0..Y_n		construction	defined_faithfully	
+D-base	definition	Explicit14point integer/real base from5.1		Certificate.base;realImage Certificate.base	defined_faithfully	
+U-alpha-tau	identity	alpha(H)+tau(H)=n_H	Complement independent↔transversal	FiniteHypergraph.alpha_add_tau;h_add_hypergraph_tau	verified_this_round	
+U-strict1	example	{1,2,3,5}weakSidon but not(4,5)		weak_not_fourFive_example	strict_inclusion_verified	Source also states explicit APnonlinearity example{123},{135};this geometricwitness remains an ancillaryassertion unless separatelyproved
+U-strict2	example	{1,2,3,6}(4,5)but notSidon		fourFive_not_sidon_example	verified_this_round	
+U-cardConstruction	claim	|A_(2n+1)|=2n+1	Valuation strata;X/Yinjectivity and disjointness	construction_card	verified_this_round	
+U-baseWitness	example	{0,136,200,243,246,298,323,528}is8point Sidon subset	Finite kernel check;real cast transport	Certificate.witness_sidon_by_count;witness_sidon_real	verified	
+U-oldBounds-Eq1	historical_background	(1/2+1/(141*76))*n≤f(n)≤3n/5+1	Gyarfás-Lehel1995		not_formalized_background	Clarify full-paper scope:quoted contextual result is not used in new proofs;literal allassertions would require it

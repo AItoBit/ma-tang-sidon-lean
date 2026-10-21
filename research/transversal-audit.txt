@@ -1,0 +1,96 @@
+HISTORICAL ROUND2 AUDIT: source4.6 has subsequently been fully formalized in retryround3. See TransversalTheorem.lean, MainExact.lean, and research/retry-referee.txt. The5.3access gap remains.
+
+External transversal dependency audit — 2026-10-21
+Target: Ma–Tang arXiv:2602.23282v2, Theorems 4.6 and 5.3.
+This file is a source/proof audit, not a Lean proof and not completion.
+
+1. Theorem 4.6: 4 tau(H) <= |V(H)| + |E(H)| for finite 3-uniform H.
+
+Primary sources successfully obtained:
+A. V. Chvatal and C. McDiarmid, Small transversals in hypergraphs,
+   Combinatorica 12 (1992), 19–26, DOI 10.1007/BF01191201.
+   Correct author-upload URL:
+   https://www.researchgate.net/profile/Vaclav-Chvatal/publication/226907175_Small_transversals_in_hypergraphs/links/5859098908ae3852d255658b/Small-transversals-in-hypergraphs.pdf
+   Ordinary curl retrieved the 8-page PDF (370464 bytes), although the web
+   search fetcher failed. Local research-only files:
+   research/external/chvatal-mcdiarmid.pdf and .txt.
+   Theorem 6.1 proof, Section 6, directly yields the k=3 result.
+   Proof route: vertex-degree induction reduces to maximum degree two;
+   pass to the dual multigraph on hyperedges; apply Shannon's edge-colouring
+   theorem to find a matching, then complete a transversal.
+   This introduces an unproved Shannon subcubic multigraph theorem unless
+   it is separately formalized. No matching Lean result was located.
+
+B. S. Thomasse and A. Yeo, Total domination of graphs and small transversals
+   of hypergraphs, author manuscript at
+   https://perso.ens-lyon.fr/stephan.thomasse/liste/strondom.pdf
+   Full 10-page manuscript obtained. Local research-only copies:
+   research/external/thomasse-yeo.pdf and .txt.
+   Relevant result: Theorem 1, manuscript page 2 (Section 1).
+   Its direct proof avoids Shannon. Induction handles high-degree vertices,
+   edges containing both degree-one and degree-two vertices, and isolated
+   edge components. The residual two-regular hypergraph contains a shortest
+   loose cycle; parity determines a deletion and a set meeting deleted edges.
+   The numerical decrease pays four per chosen vertex.
+
+Remaining formal burden for route B, independently assessed:
+- A finite deletion operation with exact edge/vertex bounds and preservation
+  of 3-uniformity.
+- Degree/incidence counting and the low-degree reduction cases.
+- Existence of the required loose cycle in a finite two-regular hypergraph,
+  including the two-edge/two-common-vertices case.
+- Distinctness and external-incidence properties from shortestness.
+- Even/odd index selection and the odd case's extra vertex/edge.
+- Transversal extension and induction cardinal bookkeeping.
+The existing finite hypergraph representation and alpha+tau bridge help,
+but none of these missing assertions may be assumed. The source is available;
+the obstacle is unfinished verified proof infrastructure, not a mathematical
+open problem or lack of a proof in the literature.
+
+2. Theorem 5.3: 17 tau(H) <= 5|V(H)| + 3|E(H)| for finite
+3-uniform linear H avoiding the specified five-edge seven-vertex F7.
+
+Bibliography verified:
+M. A. Henning and A. Yeo, Affine Planes and Transversals in 3-Uniform Linear
+Hypergraphs, Graphs and Combinatorics 37(3) (2021), 867–890,
+DOI 10.1007/s00373-021-02285-x.
+The publisher abstract and the authors' SDU institutional record verify the
+inequality under avoidance of AG(2,3) with two vertices removed. The supplied
+Ma–Tang paper identifies the relevant source as Theorem 7 and the forbidden
+configuration as its F7. This exact numbering has not been checked against
+full text of Henning–Yeo.
+
+Full-text access status:
+- Publisher article/official PDF URL returns the subscription preview.
+- ResearchGate exposes a publisher preview only, not the proof.
+- SDU and UJ institutional listings link to the DOI, without a deposited PDF.
+- OpenAlex reports no PDF/full-text repository location.
+- Connected Undermind exact lookup: [Hen21], DOI as above, PDF unavailable.
+No full proof of this theorem was read during this audit. Its internal lemmas
+cannot honestly be inventoried from an abstract. This is a current source-access
+limitation, not evidence that the theorem is false or impossible to formalize.
+
+Verified primary/institutional reference URLs:
+https://doi.org/10.1007/s00373-021-02285-x
+https://portal.findresearcher.sdu.dk/en/publications/affine-planes-and-transversals-in-3-uniform-linear-hypergraphs/
+https://pure.uj.ac.za/en/publications/affine-planes-and-transversals-in-3-uniform-linear-hypergraphs/
+
+3. Installed Mathlib search
+
+Pinned source: 49fd9dee36e7bbf345fe7981d2de6aeeb591f75b.
+Searches of Hypergraph and SimpleGraph sources located no theorem matching
+4.6 or 5.3, no Shannon multigraph edge-colouring theorem, and no ready-made
+finite loose-cycle transversal argument. This is a search result, not an
+exhaustive proof of absence from every Lean repository.
+
+4. Trust/completion verdict
+
+Neither external transversal inequality has a complete kernel-checked proof
+in this campaign at the time of this audit. A theorem assuming either inequality
+would be conditional and cannot count toward the user's completion requirement.
+The F7 avoidance result is being discharged independently by the other agent;
+that eliminates one external citation but does not supply either inequality.
+
+Retained external PDFs are research inputs, not proposed redistribution files.
+Preserve their citations/hashes and this audit in a checkpoint; do not present
+source retrieval or the present audit as a formal proof.

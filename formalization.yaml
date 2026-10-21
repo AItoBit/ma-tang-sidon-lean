@@ -1,0 +1,113 @@
+version: v0.4
+project:
+  name: Selected Sidon subset theorems of Ma–Tang (partial paper formalization)
+  description: 'Lean 4 proofs of the exact largest-Sidon-subset guarantee g(n)=ceil((n+1)/2) for
+    finite weak Sidon sets, its asymptotic density 1/2, convergence and the optimal-constant characterization
+    for finite (4,5)-sets, and the upper bound cStar<=4/7. The project also proves the finite three-uniform
+    transversal bound 4tau<=n+m used in the exact guarantee. This is a partial formalization of Ma–Tang,
+    arXiv:2602.23282v2: Theorem5.3 and the lower9/17 bound in Theorem1.6 remain unproved.'
+  authors:
+  - AItoBit
+  license: Apache-2.0
+  responsible_maintainers:
+  - AItoBit
+classification:
+  arxiv:
+  - math.CO
+  - math.NT
+  msc2020:
+  - 11B75
+  - 05C65
+sources:
+- title: Largest Sidon Subsets in Weak Sidon Sets
+  authors:
+  - Jie Ma
+  - Quanyu Tang
+  id: arXiv:2602.23282v2
+  type: paper
+  location: https://arxiv.org/abs/2602.23282v2
+  relationship: formalizes
+  author_endorsement: not-contacted
+  note: Selected results only:1.2,1.3,1.5, upper1.6,4.6; additional supporting results. No full-paper
+    completion or novelty claimed.
+- title: Small transversals in hypergraphs
+  authors:
+  - V. Chvátal
+  - C. McDiarmid
+  id: Combinatorica12(1992),19–26
+  type: paper
+  relationship: independently-proves
+  note: Known3uniform transversal inequality recalled as Ma–Tang4.6, proved here by deletion to a
+    linear2regular hypergraph, incidence duality and an elementary maximum-matching argument. Independent
+    proof route; no novelty claim.
+related_formalizations: []
+status:
+  scope: Theorems1.2,1.3,1.5,4.6 and upper bound1.6 proved unconditionally; Lemma5.1, Lemma5.2 and
+    supporting development also verified. Theorem5.3 and lower9/17 in1.6 absent. Historical inequality(1)
+    and an explicit APnonlinearity example also remain outside the proved scope. Five compared theorems
+    are genuine proofs; whole paper remains incomplete.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+  main_results:
+  - SidonSubmission.weak_sidon_limit
+  - SidonSubmission.exact_weak_sidon_size
+  - SidonSubmission.four_five_limit
+  - SidonSubmission.density_upper
+  - SidonSubmission.transversal_bound
+automation:
+  methods:
+  - method: agent
+    models:
+    - GPT-6 family (exact per-agent model metadata not retained)
+    framework: ChatGPT Codex Work Mode
+    tool_setup: Multi-agent proof development and independent agent source-fidelity review; Lean4
+      and pinnedMathlib; kernel-checked decide for finite certificates.
+    prompting_notes: User requested full source-faithful formalization without proof holes or new
+      mathematical axioms. Later explicitly authorized submission of the verified subset as partial.
+  notes: Substantive proof generation and review were performed by AI agents under user direction.
+    No independent human mathematical review is claimed. Consensus was attempted but exhausted its
+    quota; no Consensus review obtained. The five deliberate Challenge proof holes are statement
+    placeholders only and are excluded from sorry_count; Solution does not import Challenge and has
+    no sorryAx dependency.
+  spend_usd: not tracked
+fidelity:
+  divergences: Partial paper coverage, explicitly disclosed. Theorem1.3 uses natural(n+2)/2, equal
+    to the source ceiling for n>=1. The generic Fekete lemma uses a bounded-below condition; nonnegativity
+    supplies it in the applications. Theorem4.6 uses a complete alternate proof. No weakened replacement
+    is claimed for omitted5.3 or lower1.6.
+review:
+  status: agent-reviewed
+  reviewers:
+  - Codex independent referee agents; no independent human reviewer
+  notes: See research/retry-referee.txt for source-fidelity review. Original34-module build and216transitive-axiom
+    audits passed. Module-system port is rebuilt separately; Palomar mechanical preflight and editorial
+    review are distinct and are not claimed passed until actual reports say so.
+alignment:
+  namespace: SidonSubmission
+  statements:
+  - source: Theorem1.2
+    lean: SidonSubmission.weak_sidon_limit
+    module: Solution
+    status: proved
+  - source: Theorem1.3
+    lean: SidonSubmission.exact_weak_sidon_size
+    module: Solution
+    status: proved
+  - source: Theorem1.5
+    lean: SidonSubmission.four_five_limit
+    module: Solution
+    status: proved
+  - source: Theorem1.6 upper bound only
+    lean: SidonSubmission.density_upper
+    module: Solution
+    status: proved
+  - source: Theorem4.6
+    lean: SidonSubmission.transversal_bound
+    module: Solution
+    status: proved
+acknowledgements: Lean4 and Mathlib developers; Ma–Tang and cited combinatorial literature. Source
+  papers are cited, not relicensed or redistributed.

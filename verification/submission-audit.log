@@ -1,0 +1,13 @@
+SidonSubmission.weak_sidon_limit : Filter.Tendsto (fun n => ↑(SidonPaper.g n) / ↑n) Filter.atTop (nhds (1 / 2))
+'SidonSubmission.weak_sidon_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonSubmission.exact_weak_sidon_size (n : ℕ) : 1 ≤ n → SidonPaper.g n = (n + 2) / 2
+'SidonSubmission.exact_weak_sidon_size' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonSubmission.four_five_limit :
+  Filter.Tendsto (fun n => ↑(SidonPaper.f n) / ↑n) Filter.atTop (nhds SidonPaper.cStar) ∧
+    SidonPaper.cStar = sInf {r | ∃ n, 1 ≤ n ∧ r = ↑(SidonPaper.f n) / ↑n}
+'SidonSubmission.four_five_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonSubmission.density_upper : SidonPaper.cStar ≤ 4 / 7
+'SidonSubmission.density_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+SidonSubmission.transversal_bound.{u_1} {α : Type u_1} {H : SidonPaper.FiniteHypergraph α} (h3 : H.ThreeUniform) :
+  4 * H.tau ≤ H.vertices.card + H.edges.card
+'SidonSubmission.transversal_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,271 @@
+Independent retry referee — 2026-10-21
+Reviewer agent: /root/retry_referee
+Scope: SidonPaper/TransversalReduction.lean and source Theorem1 in the
+Thomasse–Yeo author manuscript research/external/thomasse-yeo.txt (page2).
+This report does not assert completion of source4.6 or of the Ma–Tang paper.
+
+MATHEMATICAL / FIDELITY VERDICT: PASS for the deletion reductions and
+minimal-counterexample reduction to two-regular three-uniform hypergraphs.
+Compiler status and axiom evidence must be supplied by the parent final build.
+
+Definition audit:
+- incidentEdges counts exactly the set of hyperedges containing the vertex.
+- degree counts incidence in the finite simple hypergraph model.
+- deleteVertices removes S from V and discards every edge meeting S; retained
+  edges are unchanged, matching the source deletion convention. It does not
+  shrink edges and so preserves3-uniformity.
+- removedEdges and retained edges partition the original finite edge set.
+- The vertex accounting explicitly requires S⊆V; no truncated subtraction is
+  mistaken for an integer equality.
+- The finite-simple edge model agrees with Ma–Tang's E set. The Thomasse–Yeo
+  proof additionally discusses repeated edges, but that extra multihypergraph
+  generality is not needed for the present paper's set-of-edges convention.
+
+Reduction audit:
+- transversal_deleteVertices_extend correctly handles retained and removed
+  edges separately. Chosen P need only meet every removed edge.
+- transversal_four_lift uses an attained minimum transversal of the deletion,
+  tau≤card(T∪P), card(T∪P)≤cardT+cardP and exact accounting. P⊆V is required;
+  P⊆S is not needed for this inequality because equality of union cardinality
+  is never assumed. The hdel premise is a legitimate induction premise in
+  this auxiliary lemma, not a declared mathematical axiom or completed4.6.
+- Degree≥3 step: delete one vertex and all incident edges, add that vertex to
+  the transversal; at least four total vertex/edge units pay for it.
+- Mixed edge step: b has degree1 in edge e containing a. Every edge killed
+  by deleting a,b is already incident with a. Distinct a,b and deg(a)≥2 pay
+  two removed vertices plus at least two removed edges for one chosen vertex.
+- Isolated edge step: every vertex of e has degree1, so deleting e kills
+  exactly e. Uniformity gives three removed vertices and one removed edge.
+- Isolated vertex step: its incident-edge set is empty, so no chosen vertex
+  is necessary.
+
+Minimality audit:
+- Minimize the finite vertex cardinality among actual3-uniform counterexamples
+  on the same ambient type. Existence is supplied by the original counterexample.
+- Any deletion of a nonempty vertex subset has strictly fewer vertices and
+  therefore satisfies the desired inequality by minimality.
+- Isolated-vertex and high-degree reductions force degrees between1 and2.
+- If a vertex has degree1, take its incident edge. Either some vertex in this
+  edge has degree≥2 (mixed-edge reduction), or every vertex in the edge has
+  degree1 (isolated-edge reduction). Either contradicts minimality.
+- Thus every vertex of the residual counterexample has degree exactly2.
+- No induction hypothesis is used at the same vertex count, and no cycle,
+  matching, Shannon, or desired transversal theorem is assumed.
+
+Current implementation note at first inspection:
+The line producing an incident edge from positive degree needed explicit
+unfolding/change between degree and incidentEdges.card for omega. This is an
+implementation issue only, not a mathematical gap. Parent notified.
+
+Remaining obligation after this reduction:
+Prove the actual bound for every finite2-regular3-uniform hypergraph, e.g. by
+finite loose-cycle extraction and the even/odd deletion certificates, or via a
+dual subcubic multigraph matching bound with all dependencies discharged.
+The reduction theorem alone does not prove4.6. The Henning–Yeo5.3 bound remains
+independent and must also be proved before full-paper completion.
+
+Extended reduction audit — same reviewer, subsequent source revision
+
+VERDICT: PASS for counterexample_has_deletion_minimal_two_regular,
+incidentEdges_eq_pair, transversal_four_double_intersection, and
+counterexample_has_linear_two_regular.
+
+- The strengthened minimality theorem returns actual inequality proofs for
+  every nonempty vertex deletion of its selected K. They follow from its
+  Nat.find minimal vertex cardinality and preserved3-uniformity. There is no
+  hypothesis asserting those inequalities externally.
+- incidentEdges_eq_pair uses two distinct incident edges and exact degree2
+  to identify the whole incident-edge finite set, not merely a subset.
+- With two common distinct degree2vertices a,b, both incidence sets are the
+  same pair e,f. Hence deleting a,b removes exactly e,f and choosing a hits
+  both. The cost is precisely4=2removedvertices+2removededges. This stronger
+  auxiliary assertion does not need3-uniformity.
+- If two distinct edges of the deletion-minimal regular counterexample had
+  intersection cardinality at least2, choose two common vertices and apply
+  the preceding reduction to a strictly smaller deletion. Contradiction
+  establishes the literal Linear property (every distinct edge pair meets
+  in at most one vertex).
+- No claim of an actual counterexample is made: all existence conclusions
+  are consequences of an assumed failure, which is a valid unconditional
+  reduction toward proving no failures exist.
+
+Independent compiled import/audit:
+source tooling/env.sh; export LEAN_PATH="$PWD:$LEAN_PATH";
+lean /tmp/RetryRefereeAudit.lean
+Exit0. Exact elaborated signatures and axiom reports retained at
+/tmp/retry-referee-audit.log. All four audited declarations have only
+propext, Classical.choice, Quot.sound. No sorryAx or evaluator axiom appears.
+
+Remaining interface note: current counterexample_has_linear_two_regular
+forgets the deletion-minimality proof. Retaining that proof in an additional
+strengthened theorem would make the later cycle deletion argument easier;
+this is an interface recommendation, not a correctness defect.
+
+Residual cycle/low-degree modules were not yet present at the time of this
+inspection, so no independent verdict on those modules is asserted here.
+
+New alternative proof route identified by the independent referee
+(complete mathematical argument for simplifying the residual cycle step;
+not yet a Lean verification claim)
+
+Shortestness/chordlessness of the dual cycle is stronger than necessary.
+Take ANY simple cycle e_0,...,e_(k-1) in the simple cubic dual graph of a
+linear2-regular3-uniform H. Let x_i be the original vertex representing its
+cycle edge. Each x_i has exactly the two incident hyperedges e_i,e_(i+1),
+so deleting all x_i kills exactly these k hyperedges. The x_i are distinct.
+
+If k is even, alternating x_i hit all cycle hyperedges and the usual
+4-per-chosen-vertex count closes the induction step without any condition
+on chords or the third vertices.
+
+If k is odd, an incidence parity argument guarantees a boundary vertex y:
+there exists a vertex lying in exactly one hyperedge of F={e_i}. Otherwise
+every vertex in the union of F would have both of its2 incidences in F,
+so counting incidences would give3|F|=2|union F|, impossible for odd|F|.
+Since every cycle-intersection x_i is incident with two edges of F, y differs
+from every x_i. Its second incident edge lies outside F. Rotate the cycle
+so that the sole edge of F containing y is its otherwise-uncovered edge.
+Delete the k cycle-intersection vertices plus y. Exactly k+1 hyperedges
+are killed; alternating(k-1)/2 cycle vertices plus y hit all of them.
+Thus4*((k+1)/2)=(k+1)+(k+1), giving the required lift.
+
+This argument works even if several third vertices along the cycle coincide
+(chords in the dual graph). Only one boundary vertex is required in the odd
+case. Accordingly the remaining infrastructure can be reduced to:
+1. Construction of the simple cubic dual graph (nonlinear case already removed).
+2. Existence of any simple cycle in a finite graph of minimum degree≥2.
+3. Incidence-count parity boundary lemma for an odd finite hyperedge family.
+4. Cyclic alternating selection and exact deletion accounting.
+No shortest-cycle or induced-cycle theorem is intrinsically required.
+
+Independent matching and packing audit
+
+Files reviewed in full:
+- SidonPaper/TransversalLowDegree.lean
+- SidonPaper/TransversalPacking.lean
+
+MATHEMATICAL / FIDELITY VERDICT: PASS.
+
+Matching theorem scope:
+The input is a finite SIMPLE graph encoded as a finite hypergraph whose every
+edge is a two-element finite set. Parallel edges are not representable. The
+maximum vertex degree is at most3. This is sufficient for the intended dual
+of a linear2-regular3-uniform hypergraph; it is not a claimed multigraph
+Shannon theorem. Source4.6 itself still requires the dual bridge and preceding
+nonlinear-case reduction before this result applies.
+
+Detailed matching audit:
+1. A maximum-cardinality matching exists by maximizing cardinality over the
+   finite powerset of the graph's edge set. Every edge is nonempty, so adding
+   an edge disjoint from the matching support would increase its cardinality.
+   Therefore every graph edge meets the matching support C.
+2. For a matched edge{u,v}, suppose distinct unmatched vertices x,y satisfy
+   ux,vy∈E. The edges ux and vy are disjoint because u,v lie in C whereas x,y
+   do not, and x≠y. Neither is already matched. Removing uv and inserting
+   ux,vy preserves all other matching disjointness and increases cardinality.
+   The formal exchange proves exactly this no-augmenting-path-of-length3 fact.
+3. A matched vertex has at most two unmatched neighbours: mapping x to its
+   graph edge{u,x} injects those neighbours into incidentEdges(u)\{uv}, whose
+   cardinality is degree(u)-1≤2. Simplicity is essential and correctly used.
+4. If both ends u,v have unmatched neighbours, every such cross pair must be
+   the same vertex, by step2. Hence each endpoint's unmatched-neighbour set
+   has cardinality at most1, and their sum is at most2. If only one endpoint
+   has such neighbours, step3 gives the same bound. The proof counts entries
+   separately at the endpoints, so the common-neighbour triangle case is not
+   mistakenly counted only once.
+5. Every external edge (an edge not contained in C) meets C by maximality,
+   and its other endpoint is outside C. Choose a matching edge containing its
+   endpoint in C. It is counted in that matching edge's crossEdges family.
+   Each such family has size≤2 by the endpoint count. The finite union bound
+   therefore gives B:=number of external graph edges≤2k, k:=|M|. No unjustified
+   unique-charge or exact union-cardinality assumption is used.
+6. Matching edges are pairwise disjoint and each has2vertices, so |C|=2k.
+   Let I=sum over graph edges e of |C∩e|. Incidence counting gives
+   I≤sum over x∈C degree(x)≤3|C|=6k. Each internal edge contributes2 and each
+   external edge contributes1, so I+B=2m. Thus2m≤8k, i.e.m≤4k.
+
+Packing and incidence audit:
+- tau_le_edges chooses one actual vertex from each nonempty edge. Empty edge
+  family is handled and its choice-domain is empty. The image cardinality is
+  bounded above rather than assumed equal to the number of edges.
+- tau_le_delete_add_card covers removed edges with selected P, retains an
+  attained optimal transversal of the deletion, and uses card(T∪P)≤cardT+cardP.
+- If removedEdges(P).card=2|P|, exact edge partition accounting yields
+  tau(H)+|P|≤m. There is no unexplained matching assumption in this abstract
+  lemma: the explicit double-coverage hypothesis is what the later dual
+  bridge must prove.
+- The incidence identity counts exactly all(e,x) with e∈E and x∈e⊆V. Thus
+  three-uniformity and degree2 on every vertex give3m=2n, including empty H.
+- Combining tau+|P|≤m, n≤4|P| and3m=2n proves4tau≤n+m. This is an arithmetic
+  implication, not an assumed desired transversal inequality.
+
+No circularity, hidden impossible premise, altered graph convention, native
+evaluation, or assumed graph-colouring theorem was found in these modules.
+All hypotheses are explicit. Full4.6 is established only after checking the
+actual dual construction and its matching-to-selected-original-vertices bridge.
+
+FINAL INDEPENDENT FIDELITY VERDICT FOR THE RETRY'S COMPLETED MAIN CHAINS
+
+PASS: source Theorem4.6, Theorem1.3 and Theorem1.2.
+This verdict does NOT establish source Theorem5.3 or the9/17 lower bound in1.6.
+
+Additional files reviewed in full:
+- SidonPaper/TransversalCycle.lean (dual graph / finite incidence dual)
+- SidonPaper/TransversalDualPacking.lean
+- SidonPaper/TransversalTheorem.lean
+- SidonPaper/CeilingAsymptotic.lean
+- SidonPaper/MainExact.lean
+
+Dual construction audit:
+1. dualIncidence.vertices is precisely the original hyperedge set. Its edges
+   are the incidence pairs incidentEdges(x), for x in the original vertex set.
+   Degree2 ensures every such pair has exactly2 members and is nonempty.
+2. If distinct original vertices x,y produced the same pair{e,f}, then both
+   x,y would lie in e∩f. Degree2 gives e≠f; original linearity forbids2 common
+   vertices. Thus the label map is injective, not merely surjective.
+   Consequently the dual has exactly n original-vertex labels as its edges.
+3. The dual edges incident with an original hyperedge e are exactly the image
+   of the3 original vertices in e under that label map. Injectivity makes its
+   degree exactly3. No hidden multiplicity collapse is ignored.
+4. Given a dual matching M, subset_image_iff produces a genuine original
+   subset P with image(P)=M. Label injectivity proves |P|=|M|. Removed original
+   edges are the union of these incidence pairs. Matching disjointness makes
+   their union card equal to2|M|=2|P|. This fully discharges the double-coverage
+   premise of TransversalPacking; it is not assumed without a witness.
+5. The proved simple-subcubic matching bound gives n≤4|M|=4|P|. The incidence
+   identity3m=2n and the verified packing count yield4tau≤n+m for every linear
+   two-regular H. The deletion-minimal counterexample reduction then rules
+   out every finite3-uniform counterexample, discharging full source4.6.
+6. The cycle-existence theorem in TransversalCycle is not needed by the final
+   matching proof, and no shortest-cycle or Shannon theorem is assumed in the
+   dependency path to transversal_four.
+
+MainExact / source correspondence audit:
+- g_lower chooses an actually attained weak-Sidon extremizer A of card n.
+  For n=1 it proves existence of a singleton Sidon subset, not an assumed
+  small-case equality. For n≥2 it combines the proved4.6 with m_AP≤n-2 and
+  h(A)+tau(AP(A))=n. Integer arithmetic yields ceil((n+1)/2)≤g(n).
+- theorem_1_3 combines this with the previously verified construction upper
+  bound and states exactly g(n)=(n+2)/2 over naturals, for every n≥1. The
+  natural division correctly encodes ceiling((n+1)/2), including positive
+  even n. No statement weakening or extra mathematical hypothesis appears.
+- ceiling_half_ratio_tendsto bounds the NATURAL ceiling ratio between1/2
+  and1/2+1/n for n≥1; coercions preserve the intended floor/ceiling value.
+  The squeeze proof is correct and only uses eventual positive denominators.
+- theorem_1_2 uses eventual equality from n≥1 to transfer that limit to
+  g(n)/n. The n=0 real division convention is harmless because no initial
+  index is used to establish the eventual-limit equality.
+
+Independent compiler / axiom confirmation:
+source tooling/env.sh; export LEAN_PATH="$PWD:$LEAN_PATH";
+lean /tmp/FullRetryRefereeAudit.lean
+Exit0. Exact signatures and axiom reports saved in
+/tmp/full-retry-referee-audit.log. All six targets (dual edge count, dual degree,
+dual matching pullback, full4.6, full1.3, full1.2) have only propext,
+Classical.choice, Quot.sound. Earlier independent matching/packing audit at
+/tmp/matching-referee-audit.log also exited0 with the same permitted set.
+
+No circularity, hidden assumption of a missing result, native-evaluator axiom,
+false small-case shortcut, altered quantifier, or unsupported full-paper claim
+was found. Source5.3 and its9/17 consequence remain explicitly outside this
+PASS verdict until independently proved and compiled.

@@ -1,0 +1,16 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "SidonSubmission.weak_sidon_limit",
+    "SidonSubmission.exact_weak_sidon_size",
+    "SidonSubmission.four_five_limit",
+    "SidonSubmission.density_upper",
+    "SidonSubmission.transversal_bound"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

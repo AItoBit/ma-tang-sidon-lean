@@ -1,0 +1,435 @@
+module
+
+public import SidonPaper
+#check SidonPaper.IsSidon.weak
+#print axioms SidonPaper.IsSidon.weak
+#check SidonPaper.IsSidon.mono
+#print axioms SidonPaper.IsSidon.mono
+#check SidonPaper.IsWeakSidon.mono
+#print axioms SidonPaper.IsWeakSidon.mono
+#check SidonPaper.IsSidon.apFree
+#print axioms SidonPaper.IsSidon.apFree
+#check SidonPaper.sidon_iff_apFree
+#print axioms SidonPaper.sidon_iff_apFree
+#check SidonPaper.sidon_subset_iff_apFree
+#print axioms SidonPaper.sidon_subset_iff_apFree
+#check SidonPaper.ap_endpoints_unique
+#print axioms SidonPaper.ap_endpoints_unique
+#check SidonPaper.ap_midpoint_between
+#print axioms SidonPaper.ap_midpoint_between
+#check SidonPaper.sidon_affine_iff
+#print axioms SidonPaper.sidon_affine_iff
+#check SidonPaper.weakSidon_affine_iff
+#print axioms SidonPaper.weakSidon_affine_iff
+#check SidonPaper.h_eq_apIndependenceNumber
+#print axioms SidonPaper.h_eq_apIndependenceNumber
+#check SidonPaper.apEdges_card_le
+#print axioms SidonPaper.apEdges_card_le
+#check SidonPaper.IsSidon.eq_or_swap
+#print axioms SidonPaper.IsSidon.eq_or_swap
+#check SidonPaper.IsSidon.difference_injective
+#print axioms SidonPaper.IsSidon.difference_injective
+#check SidonPaper.IsSidon.differences_card
+#print axioms SidonPaper.IsSidon.differences_card
+#check SidonPaper.IsSidon.fourFive
+#print axioms SidonPaper.IsSidon.fourFive
+#check SidonPaper.equal_sum_differences_le
+#print axioms SidonPaper.equal_sum_differences_le
+#check SidonPaper.IsFourFive.weakSidon
+#print axioms SidonPaper.IsFourFive.weakSidon
+#check SidonPaper.apEdges_linear
+#print axioms SidonPaper.apEdges_linear
+#check SidonPaper.card_le_h
+#print axioms SidonPaper.card_le_h
+#check SidonPaper.h_le_card
+#print axioms SidonPaper.h_le_card
+#check SidonPaper.h_mono
+#print axioms SidonPaper.h_mono
+#check SidonPaper.affine_injective
+#print axioms SidonPaper.affine_injective
+#check SidonPaper.affineImage_coe
+#print axioms SidonPaper.affineImage_coe
+#check SidonPaper.affineImage_card
+#print axioms SidonPaper.affineImage_card
+#check SidonPaper.h_affineImage
+#print axioms SidonPaper.h_affineImage
+#check SidonPaper.weakSidon_affineImage_iff
+#print axioms SidonPaper.weakSidon_affineImage_iff
+#check SidonPaper.differences_affineImage
+#print axioms SidonPaper.differences_affineImage
+#check SidonPaper.differences_affineImage_card
+#print axioms SidonPaper.differences_affineImage_card
+#check SidonPaper.fourFive_affineImage_iff
+#print axioms SidonPaper.fourFive_affineImage_iff
+#check SidonPaper.h_union_le
+#print axioms SidonPaper.h_union_le
+#check SidonPaper.weakSidon_union_of_separated
+#print axioms SidonPaper.weakSidon_union_of_separated
+#check SidonPaper.exists_positive_mixed_injective
+#print axioms SidonPaper.exists_positive_mixed_injective
+#check SidonPaper.finite_symmetric_bound
+#print axioms SidonPaper.finite_symmetric_bound
+#check SidonPaper.weakSidon_affine_gluing
+#print axioms SidonPaper.weakSidon_affine_gluing
+#check SidonPaper.mem_differences
+#print axioms SidonPaper.mem_differences
+#check SidonPaper.five_le_differences_of_chain
+#print axioms SidonPaper.five_le_differences_of_chain
+#check SidonPaper.differences_three_left
+#print axioms SidonPaper.differences_three_left
+#check SidonPaper.differences_three_right
+#print axioms SidonPaper.differences_three_right
+#check SidonPaper.differences_two_each
+#print axioms SidonPaper.differences_two_each
+#check SidonPaper.fourFive_union_of_separated
+#print axioms SidonPaper.fourFive_union_of_separated
+#check SidonPaper.fourFive_affine_gluing
+#print axioms SidonPaper.fourFive_affine_gluing
+#check SidonPaper.exists_sidon_insert
+#print axioms SidonPaper.exists_sidon_insert
+#check SidonPaper.exists_sidon_card
+#print axioms SidonPaper.exists_sidon_card
+#check SidonPaper.g_admissible_nonempty
+#print axioms SidonPaper.g_admissible_nonempty
+#check SidonPaper.g_attained
+#print axioms SidonPaper.g_attained
+#check SidonPaper.f_admissible_nonempty
+#print axioms SidonPaper.f_admissible_nonempty
+#check SidonPaper.f_attained
+#print axioms SidonPaper.f_attained
+#check SidonPaper.g_le_h
+#print axioms SidonPaper.g_le_h
+#check SidonPaper.f_le_h
+#print axioms SidonPaper.f_le_h
+#check SidonPaper.g_subadditive
+#print axioms SidonPaper.g_subadditive
+#check SidonPaper.h_attained
+#print axioms SidonPaper.h_attained
+#check SidonPaper.h_empty
+#print axioms SidonPaper.h_empty
+#check SidonPaper.g_le_card_index
+#print axioms SidonPaper.g_le_card_index
+#check SidonPaper.f_le_card_index
+#print axioms SidonPaper.f_le_card_index
+#check SidonPaper.g_zero
+#print axioms SidonPaper.g_zero
+#check SidonPaper.f_zero
+#print axioms SidonPaper.f_zero
+#check SidonPaper.cStar_eq_inf_f_ratio
+#print axioms SidonPaper.cStar_eq_inf_f_ratio
+#check SidonPaper.fekete_nonnegative
+#print axioms SidonPaper.fekete_nonnegative
+#check SidonPaper.g_ratio_tendsto_inf
+#print axioms SidonPaper.g_ratio_tendsto_inf
+#check SidonPaper.f_subadditive
+#print axioms SidonPaper.f_subadditive
+#check SidonPaper.f_ratio_tendsto_inf
+#print axioms SidonPaper.f_ratio_tendsto_inf
+#check SidonPaper.theorem_1_5
+#print axioms SidonPaper.theorem_1_5
+#check SidonPaper.ceiling_half_ratio_tendsto
+#print axioms SidonPaper.ceiling_half_ratio_tendsto
+#check SidonPaper.val3_X
+#print axioms SidonPaper.val3_X
+#check SidonPaper.val3_Y
+#print axioms SidonPaper.val3_Y
+#check SidonPaper.X_pos
+#print axioms SidonPaper.X_pos
+#check SidonPaper.Y_pos
+#print axioms SidonPaper.Y_pos
+#check SidonPaper.Y_eq_two_X
+#print axioms SidonPaper.Y_eq_two_X
+#check SidonPaper.X_injective
+#print axioms SidonPaper.X_injective
+#check SidonPaper.Y_injective
+#print axioms SidonPaper.Y_injective
+#check SidonPaper.X_ne_Y
+#print axioms SidonPaper.X_ne_Y
+#check SidonPaper.construction_blocks_disjoint
+#print axioms SidonPaper.construction_blocks_disjoint
+#check SidonPaper.construction_card
+#print axioms SidonPaper.construction_card
+#check SidonPaper.X_mem_construction
+#print axioms SidonPaper.X_mem_construction
+#check SidonPaper.Y_mem_construction
+#print axioms SidonPaper.Y_mem_construction
+#check SidonPaper.construction_pos
+#print axioms SidonPaper.construction_pos
+#check SidonPaper.construction_ap_first
+#print axioms SidonPaper.construction_ap_first
+#check SidonPaper.construction_ap_second
+#print axioms SidonPaper.construction_ap_second
+#check SidonPaper.construction_ap_first_order
+#print axioms SidonPaper.construction_ap_first_order
+#check SidonPaper.construction_ap_second_order
+#print axioms SidonPaper.construction_ap_second_order
+#check SidonPaper.construction_at_valuation
+#print axioms SidonPaper.construction_at_valuation
+#check SidonPaper.construction_equal_valuation_pair
+#print axioms SidonPaper.construction_equal_valuation_pair
+#check SidonPaper.construction_equal_valuation_sum
+#print axioms SidonPaper.construction_equal_valuation_sum
+#check SidonPaper.construction_equal_pair_unique
+#print axioms SidonPaper.construction_equal_pair_unique
+#check SidonPaper.val3_add_of_ne
+#print axioms SidonPaper.val3_add_of_ne
+#check SidonPaper.construction_mixed_pair_ne_equal_sum
+#print axioms SidonPaper.construction_mixed_pair_ne_equal_sum
+#check SidonPaper.construction_mixed_pair_unique_oriented
+#print axioms SidonPaper.construction_mixed_pair_unique_oriented
+#check SidonPaper.construction_mixed_pair_unique
+#print axioms SidonPaper.construction_mixed_pair_unique
+#check SidonPaper.construction_weakSidon_nat
+#print axioms SidonPaper.construction_weakSidon_nat
+#check SidonPaper.construction_weakSidon_real
+#print axioms SidonPaper.construction_weakSidon_real
+#check SidonPaper.X_strictMonoOn
+#print axioms SidonPaper.X_strictMonoOn
+#check SidonPaper.Y_strictMonoOn
+#print axioms SidonPaper.Y_strictMonoOn
+#check SidonPaper.construction_bounds
+#print axioms SidonPaper.construction_bounds
+#check SidonPaper.construction_ap_classification
+#print axioms SidonPaper.construction_ap_classification
+#check SidonPaper.constructionAPs_card
+#print axioms SidonPaper.constructionAPs_card
+#check SidonPaper.mem_constructionAPs_iff
+#print axioms SidonPaper.mem_constructionAPs_iff
+#check SidonPaper.natRealImage_card
+#print axioms SidonPaper.natRealImage_card
+#check SidonPaper.natRealImage_coe
+#print axioms SidonPaper.natRealImage_coe
+#check SidonPaper.construction_subset_card_bound
+#print axioms SidonPaper.construction_subset_card_bound
+#check SidonPaper.construction_sidon_card_bound
+#print axioms SidonPaper.construction_sidon_card_bound
+#check SidonPaper.constructionYBlock_subset
+#print axioms SidonPaper.constructionYBlock_subset
+#check SidonPaper.constructionYBlock_card
+#print axioms SidonPaper.constructionYBlock_card
+#check SidonPaper.constructionYBlock_sidon
+#print axioms SidonPaper.constructionYBlock_sidon
+#check SidonPaper.construction_h
+#print axioms SidonPaper.construction_h
+#check SidonPaper.g_upper
+#print axioms SidonPaper.g_upper
+#check SidonPaper.weakSidon_unordered
+#print axioms SidonPaper.weakSidon_unordered
+#check SidonPaper.weakSidon_index_pair
+#print axioms SidonPaper.weakSidon_index_pair
+#check SidonPaper.weakSidon_no_F7_configuration
+#print axioms SidonPaper.weakSidon_no_F7_configuration
+#check SidonPaper.fourFive_no_F7_configuration
+#print axioms SidonPaper.fourFive_no_F7_configuration
+#check SidonPaper.Certificate.sidonByCount_iff
+#print axioms SidonPaper.Certificate.sidonByCount_iff
+#check SidonPaper.Certificate.sidonByCount_mono
+#print axioms SidonPaper.Certificate.sidonByCount_mono
+#check SidonPaper.Certificate.base_card
+#print axioms SidonPaper.Certificate.base_card
+#check SidonPaper.Certificate.witness_card
+#print axioms SidonPaper.Certificate.witness_card
+#check SidonPaper.Certificate.witness_subset
+#print axioms SidonPaper.Certificate.witness_subset
+#check SidonPaper.Certificate.witness_sidon_by_count
+#print axioms SidonPaper.Certificate.witness_sidon_by_count
+#check SidonPaper.Certificate.base_fourFive_by_count
+#print axioms SidonPaper.Certificate.base_fourFive_by_count
+#check SidonPaper.Certificate.progression_not_sidon
+#print axioms SidonPaper.Certificate.progression_not_sidon
+#check SidonPaper.Certificate.hasListedAP_not_sidon
+#print axioms SidonPaper.Certificate.hasListedAP_not_sidon
+#check SidonPaper.Certificate.base_nine_hasListedAP
+#print axioms SidonPaper.Certificate.base_nine_hasListedAP
+#check SidonPaper.Certificate.base_no_sidon_nine
+#print axioms SidonPaper.Certificate.base_no_sidon_nine
+#check SidonPaper.Certificate.base_sidon_card_le_eight
+#print axioms SidonPaper.Certificate.base_sidon_card_le_eight
+#check SidonPaper.Certificate.lemma_5_1_integer_certificate
+#print axioms SidonPaper.Certificate.lemma_5_1_integer_certificate
+#check SidonPaper.FiniteHypergraph.independent_empty
+#print axioms SidonPaper.FiniteHypergraph.independent_empty
+#check SidonPaper.FiniteHypergraph.transversal_vertices
+#print axioms SidonPaper.FiniteHypergraph.transversal_vertices
+#check SidonPaper.FiniteHypergraph.independent_complement_iff
+#print axioms SidonPaper.FiniteHypergraph.independent_complement_iff
+#check SidonPaper.FiniteHypergraph.transversal_complement_independent
+#print axioms SidonPaper.FiniteHypergraph.transversal_complement_independent
+#check SidonPaper.FiniteHypergraph.card_le_alpha
+#print axioms SidonPaper.FiniteHypergraph.card_le_alpha
+#check SidonPaper.FiniteHypergraph.alpha_attained
+#print axioms SidonPaper.FiniteHypergraph.alpha_attained
+#check SidonPaper.FiniteHypergraph.tau_attained
+#print axioms SidonPaper.FiniteHypergraph.tau_attained
+#check SidonPaper.FiniteHypergraph.tau_le_card
+#print axioms SidonPaper.FiniteHypergraph.tau_le_card
+#check SidonPaper.FiniteHypergraph.alpha_add_tau
+#print axioms SidonPaper.FiniteHypergraph.alpha_add_tau
+#check SidonPaper.edgeVertices_subset
+#print axioms SidonPaper.edgeVertices_subset
+#check SidonPaper.edgeVertices_card
+#print axioms SidonPaper.edgeVertices_card
+#check SidonPaper.apHypergraph_three_uniform
+#print axioms SidonPaper.apHypergraph_three_uniform
+#check SidonPaper.edgeVertices_injective_on
+#print axioms SidonPaper.edgeVertices_injective_on
+#check SidonPaper.apHyperedges_card
+#print axioms SidonPaper.apHyperedges_card
+#check SidonPaper.apHypergraph_edges_card_le
+#print axioms SidonPaper.apHypergraph_edges_card_le
+#check SidonPaper.apFree_iff_independent
+#print axioms SidonPaper.apFree_iff_independent
+#check SidonPaper.apHypergraph_alpha
+#print axioms SidonPaper.apHypergraph_alpha
+#check SidonPaper.h_eq_hypergraph_alpha
+#print axioms SidonPaper.h_eq_hypergraph_alpha
+#check SidonPaper.h_add_hypergraph_tau
+#print axioms SidonPaper.h_add_hypergraph_tau
+#check SidonPaper.apHypergraph_uniform
+#print axioms SidonPaper.apHypergraph_uniform
+#check SidonPaper.apHypergraph_linear
+#print axioms SidonPaper.apHypergraph_linear
+#check SidonPaper.unorderedAP_of_apHyperedge
+#print axioms SidonPaper.unorderedAP_of_apHyperedge
+#check SidonPaper.apHypergraph_F7_free
+#print axioms SidonPaper.apHypergraph_F7_free
+#check SidonPaper.fourFive_apHypergraph_F7_free
+#print axioms SidonPaper.fourFive_apHypergraph_F7_free
+#check SidonPaper.sidon_intCast_iff
+#print axioms SidonPaper.sidon_intCast_iff
+#check SidonPaper.witness_sidon_real
+#print axioms SidonPaper.witness_sidon_real
+#check SidonPaper.FiniteHypergraph.deleteVertices_vertices
+#print axioms SidonPaper.FiniteHypergraph.deleteVertices_vertices
+#check SidonPaper.FiniteHypergraph.deleteVertices_edges
+#print axioms SidonPaper.FiniteHypergraph.deleteVertices_edges
+#check SidonPaper.FiniteHypergraph.deleteVertices_uniform
+#print axioms SidonPaper.FiniteHypergraph.deleteVertices_uniform
+#check SidonPaper.FiniteHypergraph.deleteVertices_edge_accounting
+#print axioms SidonPaper.FiniteHypergraph.deleteVertices_edge_accounting
+#check SidonPaper.FiniteHypergraph.deleteVertices_vertex_accounting
+#print axioms SidonPaper.FiniteHypergraph.deleteVertices_vertex_accounting
+#check SidonPaper.FiniteHypergraph.transversal_deleteVertices_extend
+#print axioms SidonPaper.FiniteHypergraph.transversal_deleteVertices_extend
+#check SidonPaper.FiniteHypergraph.transversal_four_lift
+#print axioms SidonPaper.FiniteHypergraph.transversal_four_lift
+#check SidonPaper.FiniteHypergraph.removedEdges_singleton
+#print axioms SidonPaper.FiniteHypergraph.removedEdges_singleton
+#check SidonPaper.FiniteHypergraph.transversal_four_high_degree
+#print axioms SidonPaper.FiniteHypergraph.transversal_four_high_degree
+#check SidonPaper.FiniteHypergraph.high_degree_counterexample_reduction
+#print axioms SidonPaper.FiniteHypergraph.high_degree_counterexample_reduction
+#check SidonPaper.FiniteHypergraph.edge_eq_of_degree_one
+#print axioms SidonPaper.FiniteHypergraph.edge_eq_of_degree_one
+#check SidonPaper.FiniteHypergraph.removedEdges_pair_of_degree_one
+#print axioms SidonPaper.FiniteHypergraph.removedEdges_pair_of_degree_one
+#check SidonPaper.FiniteHypergraph.transversal_four_mixed_edge
+#print axioms SidonPaper.FiniteHypergraph.transversal_four_mixed_edge
+#check SidonPaper.FiniteHypergraph.removedEdges_isolated_edge
+#print axioms SidonPaper.FiniteHypergraph.removedEdges_isolated_edge
+#check SidonPaper.FiniteHypergraph.transversal_four_isolated_edge
+#print axioms SidonPaper.FiniteHypergraph.transversal_four_isolated_edge
+#check SidonPaper.FiniteHypergraph.tau_eq_zero_of_edges_empty
+#print axioms SidonPaper.FiniteHypergraph.tau_eq_zero_of_edges_empty
+#check SidonPaper.FiniteHypergraph.transversal_four_isolated_vertex
+#print axioms SidonPaper.FiniteHypergraph.transversal_four_isolated_vertex
+#check SidonPaper.FiniteHypergraph.counterexample_has_deletion_minimal_two_regular
+#print axioms SidonPaper.FiniteHypergraph.counterexample_has_deletion_minimal_two_regular
+#check SidonPaper.FiniteHypergraph.counterexample_has_two_regular
+#print axioms SidonPaper.FiniteHypergraph.counterexample_has_two_regular
+#check SidonPaper.FiniteHypergraph.incidentEdges_eq_pair
+#print axioms SidonPaper.FiniteHypergraph.incidentEdges_eq_pair
+#check SidonPaper.FiniteHypergraph.transversal_four_double_intersection
+#print axioms SidonPaper.FiniteHypergraph.transversal_four_double_intersection
+#check SidonPaper.FiniteHypergraph.counterexample_has_deletion_minimal_linear_two_regular
+#print axioms SidonPaper.FiniteHypergraph.counterexample_has_deletion_minimal_linear_two_regular
+#check SidonPaper.FiniteHypergraph.counterexample_has_linear_two_regular
+#print axioms SidonPaper.FiniteHypergraph.counterexample_has_linear_two_regular
+#check SidonPaper.FiniteHypergraph.exists_other_incident_edge
+#print axioms SidonPaper.FiniteHypergraph.exists_other_incident_edge
+#check SidonPaper.FiniteHypergraph.dualGraph_two_neighbors
+#print axioms SidonPaper.FiniteHypergraph.dualGraph_two_neighbors
+#check SidonPaper.FiniteHypergraph.dualGraph_shortest_cycle
+#print axioms SidonPaper.FiniteHypergraph.dualGraph_shortest_cycle
+#check SidonPaper.FiniteHypergraph.incidentEdges_injective_on
+#print axioms SidonPaper.FiniteHypergraph.incidentEdges_injective_on
+#check SidonPaper.FiniteHypergraph.dualIncidence_vertices
+#print axioms SidonPaper.FiniteHypergraph.dualIncidence_vertices
+#check SidonPaper.FiniteHypergraph.dualIncidence_edges
+#print axioms SidonPaper.FiniteHypergraph.dualIncidence_edges
+#check SidonPaper.FiniteHypergraph.dualIncidence_edges_card
+#print axioms SidonPaper.FiniteHypergraph.dualIncidence_edges_card
+#check SidonPaper.FiniteHypergraph.dualIncidence_two_uniform
+#print axioms SidonPaper.FiniteHypergraph.dualIncidence_two_uniform
+#check SidonPaper.FiniteHypergraph.dualIncidence_incidentEdges
+#print axioms SidonPaper.FiniteHypergraph.dualIncidence_incidentEdges
+#check SidonPaper.FiniteHypergraph.dualIncidence_degree_three
+#print axioms SidonPaper.FiniteHypergraph.dualIncidence_degree_three
+#check SidonPaper.FiniteHypergraph.mem_matchingSupport
+#print axioms SidonPaper.FiniteHypergraph.mem_matchingSupport
+#check SidonPaper.FiniteHypergraph.exists_maximum_edgeMatching
+#print axioms SidonPaper.FiniteHypergraph.exists_maximum_edgeMatching
+#check SidonPaper.FiniteHypergraph.maximum_matching_hits_edges
+#print axioms SidonPaper.FiniteHypergraph.maximum_matching_hits_edges
+#check SidonPaper.FiniteHypergraph.maximum_matching_no_three_augment
+#print axioms SidonPaper.FiniteHypergraph.maximum_matching_no_three_augment
+#check SidonPaper.FiniteHypergraph.outsideNeighbors_card_le_two
+#print axioms SidonPaper.FiniteHypergraph.outsideNeighbors_card_le_two
+#check SidonPaper.FiniteHypergraph.outsideNeighbors_pair_card_le_two
+#print axioms SidonPaper.FiniteHypergraph.outsideNeighbors_pair_card_le_two
+#check SidonPaper.FiniteHypergraph.crossEdges_card_le_two
+#print axioms SidonPaper.FiniteHypergraph.crossEdges_card_le_two
+#check SidonPaper.FiniteHypergraph.matchingSupport_card
+#print axioms SidonPaper.FiniteHypergraph.matchingSupport_card
+#check SidonPaper.FiniteHypergraph.externalEdges_card_le
+#print axioms SidonPaper.FiniteHypergraph.externalEdges_card_le
+#check SidonPaper.FiniteHypergraph.maximum_matching_quarter
+#print axioms SidonPaper.FiniteHypergraph.maximum_matching_quarter
+#check SidonPaper.FiniteHypergraph.exists_matching_quarter
+#print axioms SidonPaper.FiniteHypergraph.exists_matching_quarter
+#check SidonPaper.FiniteHypergraph.tau_le_edges
+#print axioms SidonPaper.FiniteHypergraph.tau_le_edges
+#check SidonPaper.FiniteHypergraph.tau_le_delete_add_card
+#print axioms SidonPaper.FiniteHypergraph.tau_le_delete_add_card
+#check SidonPaper.FiniteHypergraph.tau_add_card_le_edges_of_double_coverage
+#print axioms SidonPaper.FiniteHypergraph.tau_add_card_le_edges_of_double_coverage
+#check SidonPaper.FiniteHypergraph.sum_card_edges_eq_sum_degree
+#print axioms SidonPaper.FiniteHypergraph.sum_card_edges_eq_sum_degree
+#check SidonPaper.FiniteHypergraph.three_edges_eq_two_vertices
+#print axioms SidonPaper.FiniteHypergraph.three_edges_eq_two_vertices
+#check SidonPaper.FiniteHypergraph.transversal_four_of_double_coverage
+#print axioms SidonPaper.FiniteHypergraph.transversal_four_of_double_coverage
+#check SidonPaper.FiniteHypergraph.removedEdges_eq_biUnion
+#print axioms SidonPaper.FiniteHypergraph.removedEdges_eq_biUnion
+#check SidonPaper.FiniteHypergraph.dualMatching_pullback
+#print axioms SidonPaper.FiniteHypergraph.dualMatching_pullback
+#check SidonPaper.FiniteHypergraph.transversal_four_of_dual_matching
+#print axioms SidonPaper.FiniteHypergraph.transversal_four_of_dual_matching
+#check SidonPaper.FiniteHypergraph.transversal_four_linear_two_regular
+#print axioms SidonPaper.FiniteHypergraph.transversal_four_linear_two_regular
+#check SidonPaper.FiniteHypergraph.transversal_four
+#print axioms SidonPaper.FiniteHypergraph.transversal_four
+#check SidonPaper.one_le_h_of_nonempty
+#print axioms SidonPaper.one_le_h_of_nonempty
+#check SidonPaper.g_lower
+#print axioms SidonPaper.g_lower
+#check SidonPaper.theorem_1_3
+#print axioms SidonPaper.theorem_1_3
+#check SidonPaper.theorem_1_2
+#print axioms SidonPaper.theorem_1_2
+#check SidonPaper.realImage_card
+#print axioms SidonPaper.realImage_card
+#check SidonPaper.realImage_coe
+#print axioms SidonPaper.realImage_coe
+#check SidonPaper.differences_realImage
+#print axioms SidonPaper.differences_realImage
+#check SidonPaper.fourFive_realImage
+#print axioms SidonPaper.fourFive_realImage
+#check SidonPaper.lemma_5_1
+#print axioms SidonPaper.lemma_5_1
+#check SidonPaper.weak_not_fourFive_example
+#print axioms SidonPaper.weak_not_fourFive_example
+#check SidonPaper.fourFive_not_sidon_example
+#print axioms SidonPaper.fourFive_not_sidon_example
+#check SidonPaper.cStar_le_four_sevenths
+#print axioms SidonPaper.cStar_le_four_sevenths

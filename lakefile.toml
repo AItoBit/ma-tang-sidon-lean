@@ -1,0 +1,17 @@
+name = "sidon-paper"
+version = "0.3.0"
+defaultTargets = ["SidonPaper", "Solution", "Challenge"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "49fd9dee36e7bbf345fe7981d2de6aeeb591f75b"
+
+[[lean_lib]]
+name = "SidonPaper"
+
+[[lean_lib]]
+name = "Solution"
+
+[[lean_lib]]
+name = "Challenge"

@@ -1,0 +1,131 @@
+Independent source-fidelity review, round 2, 2026-10-21
+Reviewer: /root/source_referee
+Source: Ma–Tang, arXiv:2602.23282v2, 15 pages, no appendices.
+The newly supplied PDF is byte-identical to the first source PDF.
+
+SCOPE AND INVENTORY
+Exactly 25 numbered proof results: 7 theorems, 13 lemmas, 5 propositions.
+They are 1.2, 1.3, 1.5, 1.6; 2.1–2.5; 3.1–3.7; 4.1–4.6; 5.1–5.3.
+There is also Definition 1.7 and Problems 1.1/1.4. The 54-row coverage.tsv
+includes unnumbered definitions, identities, examples and historical bound(1).
+Problem 1.4 asks for the optimal constant. The source proves bounds, not its
+exact value. A faithful formalization must preserve that scope.
+
+INDEPENDENT FIDELITY VERDICT
+PASS for the following source correspondence, after reading declarations and
+proofs against the supplied source. The parent must still rebuild the final
+integrated dependency closure and retain compiler/axiom evidence.
+
+- Relations.lean: exact Propositions 2.1 and 2.2. Sidon preserves repeated
+  summands; injectivity of ordered positive differences gives six distinct
+  differences on four points. A distinct-pair sum collision reduces to four
+  distinct ordered points and at most four differences. No stronger hypothesis.
+- Basic/Targets/APBounds: Lemmas 2.3 and 2.4 preserve subset quantification,
+  nonconstant APs, midpoint injectivity and the n>=2 edge-count boundary.
+- APLinearity.lean: exact Lemma 2.5. Nine shared-pair position cases correctly
+  distinguish coincident edges, equal-sum contradictions, and the two half-AP
+  four-point configurations. This repairs the source's compressed difference
+  chain without assuming both possible third vertices occur.
+- AffineExtremal.lean: Lemmas 3.2 and 3.5, including h invariance. Positive q
+  preserves order, sums, differences and cardinality. Arbitrary Sidon subsets
+  of images are pulled back, so neither extremal inequality drops subsets.
+- Gluing.lean: exact Lemmas 3.3 and 3.6. A positive slope outside a finite
+  forbidden-ratio set makes mixed sums/differences injective. Symmetric radius
+  L and translation t=5L place the blocks in [-L,L] and [4L,6L]. This separates
+  all pair-sum types and makes every mixed difference larger than every
+  internal difference. The sorted four-point block cases are exhaustive.
+  Empty sets are handled by the same bounds; no min/max of an empty set occurs.
+- Attainment.lean: admissible finite Sidon sets exist at every cardinality by
+  finite avoidance of half-sums and triple affine expressions. Therefore f/g
+  infima are genuine attained minima; h also has an attained maximum. The
+  previous totalized-infimum fidelity obligation is fully discharged.
+- Attainment/ExtremalLimits: exact Propositions 3.4 and 3.7, including index
+  zero. Fekete is applied to nonnegative normalized sequences with all-index
+  subadditivity proved. The equality cStar=inf f(n)/n uses attained f extrema,
+  and the converse uses f<=h. All denominators are positive at n>=1.
+  Theorem 1.5 is now fully proved by theorem_1_5, not merely specified.
+- Construction.lean: the X/Y definitions match the source on valid domains.
+  Their valuations are the index, the blocks are disjoint, and the exact
+  construction cardinality is 2n+1. Equal-valuation uniqueness, mixed-pair
+  uniqueness and cross-type exclusion together prove Lemmas 4.1 and 4.2.
+  The mixed-only uniqueness declaration alone is narrower than source 4.1;
+  it must always be paired with the cross-type exclusion, or wrapped as an
+  arbitrary-competitor uniqueness statement. Proposition 4.3 covers real
+  embeddings and includes harmless parameter cases zero and one.
+  Lemma 4.4 has exact classification, both membership directions, distinct
+  list entries and cardinality 2n-1. Algebraic AP identities at the boundary
+  do not claim an absent X_n belongs to the construction; list guards prevent it.
+- ConstructionUpper.lean: g_upper faithfully proves the ceiling upper bound
+  for every n by selecting n points from parameter floor(n/2), using h
+  monotonicity and construction_h. Natural (n+2)/2 is exactly the source ceiling.
+- HypergraphBridge.lean: a genuine finite set-edge model retains isolated
+  vertices and nonempty edges. Uniformity makes the nonempty-edge restriction
+  immaterial for the source's 3-uniform theorems. Alpha and tau have attained
+  extrema, and the complement identity alpha+tau=n is proved. Increasing AP
+  triples map injectively to actual three-element hyperedges, preserving edge
+  count and independent subsets. Thus h=alpha and h+tau=n are legitimate
+  bridges rather than definitions chosen to assume the needed identities.
+  Linearity and non-induced F7 avoidance are transported faithfully.
+- F7Free.lean: exact edges 012,034,056,135,246. The injective seven-point map
+  allows additional edges, matching non-induced subhypergraph avoidance.
+  Every triple permits each of its three midpoint choices; injection removes
+  degeneracy. The checked 243-case algebraic proof is stronger than source
+  5.2 because weak Sidon suffices. The actual (4,5) result follows from 2.2,
+  and fourFive_apHypergraph_F7_free gives the literal hypergraph conclusion.
+- RealCertificate/UpperBound: full real-valued Lemma 5.1 and cStar<=4/7 remain
+  source-faithful. The direct optimal-universal-density argument does not need
+  the asymptotic characterization, and now that characterization is also proved.
+
+AUTHORSHIP OF THIS ROUND'S THEOREM 4.5
+The reviewer authored ConstructionIndependence.lean, so its own review is not
+independent. The module actually compiles and reports only the standard three
+axioms. construction_h proves the exact h=n+1 result, even at parameters 0/1.
+Its upper proof injects selected X indices into missing Y indices: choose i
+if Y_i is absent, otherwise i+1. The only possible collision between different
+indices is excluded by the first AP family. The second AP family proves the
+chosen Y is absent. The lower proof shows the Y block is AP-free using the
+exhaustive classification; every classified AP has an X endpoint, excluded by
+block disjointness. Arbitrary real Sidon subsets are pulled back to naturals.
+The construction agent independently reviewed this module and returned PASS;
+its matching injection, Y-block lower bound and arbitrary real-subset pullback
+faithfully prove source 4.5.
+
+NECESSARY SOURCE REPAIR
+The printed real-valued Lemma 3.1 is false without a lower bound on normalized
+ratios: a_n=-n^2 is subadditive but a_n/n diverges to minus infinity. The
+formalization uses the corrected nonnegative case and discharges that condition
+for f and g. It must not claim to prove the unrestricted printed statement.
+
+REMAINING MATHEMATICAL FRONTIER
+The general external transversal inequalities are still unproved:
+  4.6: for every finite 3-uniform H, 4*tau(H)<=n(H)+m(H).
+  5.3: for every finite linear F7-free 3-uniform H,
+       17*tau(H)<=5*n(H)+3*m(H).
+Consequently the lower bound in 1.3, the value 1/2 assertion of 1.2, and the
+lower bound 9/17 in 1.6 remain unproved. The existence part of 1.2 and all of
+1.5 are proved; upper bounds in 1.3/1.6 are proved. Specifications in Targets
+for unfinished theorems remain specifications, never evidence of proof.
+
+CANDIDATE ROUTE FOR 4.6, NOT A PROOF
+Remove a vertex of degree>=3: one transversal point costs at most four units
+of the n+m potential. Maximum-degree<=2 hypergraphs dualize to a subcubic
+multigraph; a matching bound nu>=edges/4 would finish that case. Shannon's
+four-edge-colorability would supply that matching bound, but neither the
+full reduction nor the matching estimate is proved here. No such claim is
+permitted as an axiom or an implicit dependency.
+
+ANCILLARY SCOPE
+StrictInclusions.lean was reviewed and matches the two exact source examples:
+{1,2,3,5} is weak Sidon but not (4,5), and {1,2,3,6} is (4,5) but not Sidon.
+The later explicit AP-nonlinearity witness {123},{135} for the first set remains
+an ancillary source assertion unless a separate theorem is added.
+The historical inequality (1) is quoted background, not used in the source's
+new proof chains. A literal demand to formalize every historical quotation
+would additionally require the older finite bound and its cited Fibonacci
+construction; the coverage table retains that scope item explicitly.
+No 100-paper review or novelty certification is claimed.
+
+COMPLETION VERDICT
+Full formalization not completed. The remaining general inequalities cannot
+be replaced by assumed propositions, conditional theorems, or weakened special
+cases and still meet the user's explicit requirements.

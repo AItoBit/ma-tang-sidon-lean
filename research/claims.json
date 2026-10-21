@@ -1,0 +1,85 @@
+{
+  "target": "arxiv:2602.23282v2 full paper",
+  "nodes": [
+    {
+      "id": "transversal4",
+      "source": "4.6",
+      "lean": "SidonPaper.FiniteHypergraph.transversal_four",
+      "state": "kernel_verified_independently_audited",
+      "uses": [
+        "finite_deletion",
+        "linear_two_regular_reduction",
+        "simple_dual",
+        "maximum_matching_quarter",
+        "dual_matching_pullback",
+        "packing_incidence_count"
+      ]
+    },
+    {
+      "id": "exact_g",
+      "source": "1.3",
+      "lean": "SidonPaper.theorem_1_3",
+      "state": "kernel_verified_independently_audited",
+      "uses": [
+        "transversal4",
+        "ap_edge_bound",
+        "alpha_plus_tau",
+        "construction_h",
+        "g_upper"
+      ]
+    },
+    {
+      "id": "gamma_half",
+      "source": "1.2",
+      "lean": "SidonPaper.theorem_1_2",
+      "state": "kernel_verified_independently_audited",
+      "uses": [
+        "exact_g",
+        "ceiling_half_ratio_tendsto"
+      ]
+    },
+    {
+      "id": "f_limit",
+      "source": "1.5",
+      "lean": "SidonPaper.theorem_1_5",
+      "state": "kernel_verified_independently_audited",
+      "uses": [
+        "finite_gluing",
+        "attainment",
+        "f_subadditivity",
+        "fekete_nonnegative",
+        "cStar_inf_identity"
+      ]
+    },
+    {
+      "id": "cStar_upper",
+      "source": "1.6upper",
+      "lean": "SidonPaper.cStar_le_four_sevenths",
+      "state": "kernel_verified_independently_audited",
+      "uses": [
+        "real_base_certificate",
+        "optimal_constant"
+      ]
+    },
+    {
+      "id": "transversal17",
+      "source": "5.3",
+      "state": "unproved_full_source_inaccessible",
+      "statement": "For finite3uniformlinearF7freeH,17tau(H)<=5n(H)+3m(H)"
+    },
+    {
+      "id": "cStar_lower",
+      "source": "1.6lower",
+      "state": "unproved",
+      "uses": [
+        "transversal17",
+        "ap_three_uniform",
+        "ap_linear",
+        "ap_F7_free",
+        "ap_edge_bound",
+        "alpha_plus_tau",
+        "cStar_inf_identity"
+      ]
+    }
+  ]
+}

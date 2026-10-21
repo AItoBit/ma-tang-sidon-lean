@@ -1,0 +1,67 @@
+Henning–Yeo full-proof retry — 2026-10-21
+
+Target: Ma–Tang Theorem5.3, citing Henning–Yeo2021 Theorem7,
+DOI10.1007/s00373-021-02285-x.
+Status: no full proof of5.3 retrieved. No theorem has been assumed or formalized here.
+
+Materially different retrieval avenues attempted in this retry:
+1. Looked for author homepages/preprint archives and exact-title preprint/manuscript
+   copies, including institutional thesis repositories and later papers that might
+   reproduce the argument. Searches surfaced author institutional records but no
+   openly deposited target manuscript beyond previously screened sources.
+2. Investigated the authors' 2020 book, Transversals in Linear Uniform Hypergraphs,
+   DOI10.1007/978-3-030-46559-9. The official contents identifies finite affine planes,
+   deficiency, cap-set and partial-Steiner-triple-system chapters as potentially
+   relevant. Official chapter routes _8 and _12 could not be fetched by the search
+   tool (timeout/inaccessible). Third-party commercial-book mirrors were not used
+   as a substitute authorized full source. Search snippets do not establish that
+   the exact17tau theorem appears in the book; no such claim is made.
+3. A later UCSD thesis surfaced in broad author acknowledgments search, but its
+   official escholarship PDF download returned429. No text was read, no retries
+   bypassing that response were made, and no relevance claim is established.
+4. The target appears as "Full-text available" in a ResearchGate citation listing
+   on a DIFFERENT article page, and a short proof sentence is indexed there.
+   The actual target page still offers publisher preview/request. The citation
+   label is insufficient evidence of accessible full proof. No hidden download
+   endpoint, session evasion or paywall bypass was used.
+5. No Consensus retry was attempted after the parent reported monthly quota
+   exhaustion. This does not establish anything about the target theorem.
+
+New legitimate primary-source full texts obtained:
+A. Michael A. Henning and Anders Yeo, Transversals and independence in linear
+   hypergraphs with maximum degree two, Electronic Journal of Combinatorics24(2)
+   (2017), P2.50, DOI10.37236/6160.
+   Official institutional PDF:
+   https://findresearcher.sdu.dk/ws/files/134995352/Transversals_and_independence_in_linear_hypergraphs_with_maximum_degree_two.pdf
+   Local: research/external/henning-yeo-maxdegree-two.pdf and .txt.
+   Read relevant definitions, Proposition9 full proof and Theorem14 proof opening.
+   Proposition9 proves nu(G_H)=m(H)-tau(H) for the dual graph in maximum-degree-two
+   LINEAR uniform hypergraphs. Theorem14 at k=3 gives18tau<=4n+4m+2 for connected
+   hypergraphs of that class, but relies on a separate sharp matching theorem.
+   Thus it is a useful proof-method source, not a completed Lean shortcut or a
+   source for the required F7-free17tau theorem.
+B. Michael A. Henning and Anders Yeo, Transversals in Uniform Linear Hypergraphs,
+   arXiv:1802.01825.
+   Official PDF: https://arxiv.org/pdf/1802.01825
+   Local: research/external/henning-yeo-2018.pdf and .txt.
+   Screened definitions/introduction and searched exact desired coefficients.
+   It treats affine-plane examples and deficiency techniques, with main new
+   general result for4-uniform linear hypergraphs. No exact F7-free17tau bound
+   located in this screening. It was not reviewed in full and is not counted as
+   such. This absence of a located match is not a proof that no consequence exists.
+
+Useful parent-facing mathematical point:
+The maximum-degree-two source's Proposition9 provides a full short proof of the
+matching/transversal bridge, but the sharp bounds it uses invoke other matching
+results. It may clarify4.6's dual route; it does not close5.3.
+
+Next exact source needed remains an authorized complete manuscript of
+Henning–Yeo2021, Theorem7 and its internal lemmas, or an independently complete
+proof of the same general3uniform-linear-F7free inequality. The result is not
+reported false or impossible; source access and formal proof remain unresolved.
+
+Downloaded external PDFs are research inputs, not redistribution deliverables.
+
+SHA256 of new primary-source PDFs:
+henning-yeo-maxdegree-two.pdf 79a8c6425f1cf95e5ca3dca174db9db8bf4a9941d3da5bd1aeec86f41d314248
+henning-yeo-2018.pdf 375c1284a04d67e9465db4e873e64ba039fcc7d7ef7279c5230e8c34b4419347
