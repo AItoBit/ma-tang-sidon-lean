@@ -84,9 +84,9 @@ our applications prove nonnegativity and the zero-index subadditivity cases.
 Pinned Lean:v4.35.0-rc4. Pinned Mathlib:
 49fd9dee36e7bbf345fe7981d2de6aeeb591f75b.
 
-Full current source closure: verification/build-round3.log.
-All public theorem types/axioms: verification/AuditAll.lean and audit-round3.log.
-Exact file hashes: verification/source-hashes-round3.json.
+Current module-system rebuild: verification/module-build.log.
+All public theorem types/axioms: verification/AuditAll.lean and module-audit.log.
+Exact current source hashes: verification/module-port-report.json.
 Independent mathematical/source review: research/retry-referee.txt.
 
 Only propext, Classical.choice and Quot.sound occur in final theorem axiom
